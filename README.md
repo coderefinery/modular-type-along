@@ -84,6 +84,8 @@ picture and hopefully manage to imagine other languages in its place.
 6. Improve to more stateless functions.
 7. Discuss where to add a test and add a test to the statistics function.
 8. Discuss how you would move that function out and organize into a separate module.
+9. Discuss naming.
+10. Discuss inteface design.
 
 Now return to initial questions on the hackpad and discuss them. If there is
 time left, there are additional questions and exercises (above).
