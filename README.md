@@ -24,3 +24,17 @@ for the observation station "Vantaa Helsinki-Vantaan lentoasema".
 
 Data obtained from https://en.ilmatieteenlaitos.fi/download-observations#!/ on
 2019-12-09.
+
+
+## Our initial goal
+
+Our initial goal for this exercise is to plot a series of temperatures for 25
+measurements and to compute and plot the arithmetic mean. We imagine that we
+assemble a working script from various StackOverflow recommendations and arrive
+at [compute.py](compute.py) (not a good name but we will discuss naming later).
+
+Once we get this working for 25 measurements, our task changes to also plot the
+first 100 and the first 500 measurements in two additional plots.
+
+Before we attempt to do this, we discuss with workshop participants how they
+would tackle this problem.
