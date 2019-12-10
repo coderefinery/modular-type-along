@@ -33,6 +33,10 @@ measurements and to compute and plot the arithmetic mean. We imagine that we
 assemble a working script from various StackOverflow recommendations and arrive
 at [compute.py](compute.py) (not a good name but we will discuss naming later).
 
+This example is in Python but we will try to see "through" the code and focus on the bigger
+picture and hopefully manage to imagine other languages in its place.
+For the Python experts: we will not see the most elegant Python.
+
 Once we get this working for 25 measurements, our task changes to also plot the
 first 100 and the first 500 measurements in two additional plots.
 
