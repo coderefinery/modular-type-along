@@ -38,3 +38,33 @@ first 100 and the first 500 measurements in two additional plots.
 
 Before we attempt to do this, we discuss with workshop participants how they
 would tackle this problem.
+
+
+## Learning topics
+
+- Know about pure functions (functions without side effects).
+- Learn why and how to limit side effects of functions.
+- Discuss why and how to limit side effects of data. Also discuss when mutable data may be preferable.
+- The Zen of Python: https://www.python.org/dev/peps/pep-0020/
+- Discuss why single-purpose functions are often preferred over multi-purpose functions.
+
+
+## Additional questions
+
+1. Do you design a new code project on paper before coding? Discuss pros and cons.
+2. Do you build your code top-down or bottom-up? Discuss pros and cons.
+3. Would you prefer your code to be 2x slower if it was easier to read it?
+
+
+## Additional exercises
+
+1. Draw a call tree for one of your recent projects. Identify the functions in your call tree which are pure.
+
+
+## For instructors
+
+One possible walk-through is presented here:
+https://github.com/coderefinery/modular-type-along/commits/a-solution/compute.py
+
+We don't have to follow this line by line but it's important to study this example
+well before demonstrating this.
