@@ -14,3 +14,4 @@ mean = sum(temperatures)/num_measurements
 plt.plot(temperatures, 'r-')
 plt.axhline(y=mean, color='b', linestyle='--')
 plt.savefig('25.png')
+plt.clf()
