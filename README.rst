@@ -6,6 +6,8 @@ Lesson material for "modular code development" lesson
 Type-along/demo where we discuss and experience aspects of (un)modular
 code development.
 
+.. contents:: Table of contents
+
 
 Starting questions for the hackpad
 ----------------------------------
