@@ -9,6 +9,15 @@ code development.
 .. contents:: Table of contents
 
 
+Slides
+------
+
+We also have some slides: https://cicero.xyz/v3/remark/0.14.0/github.com/coderefinery/modular-code-development/master/talk.md/
+
+But here we will try to do this as collaborative type-along.
+
+
+
 Starting questions for the `HackMD <https://hackmd.io>`__
 ---------------------------------------------------------
 
