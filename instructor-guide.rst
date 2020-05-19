@@ -45,7 +45,7 @@ recommendations and arrive at:
 
 
 - We test it.
-- Add `requirements.txt`.
+- Add ``requirements.txt``.
 
 
 We added axis labels
