@@ -9,12 +9,12 @@ code development.
 .. contents:: Table of contents
 
 
-Starting questions for the hackpad
-----------------------------------
+Starting questions for the `HackMD <https://hackmd.io>`__
+---------------------------------------------------------
 
-We share these questions in a common hackpad (https://hackmd.io) and we
+We share these questions in a common `HackMD <https://hackmd.io>`__ and we
 wait until we have sufficiently many answers to question 1. But we also
-encourage answering questions 2-4 which we revisit at the end of the
+encourage answering questions 2-5 which we revisit at the end of the
 demo.
 
 1. What does "modular code development" mean for you?
@@ -23,6 +23,7 @@ demo.
 3. What would you recommend your colleague who starts in the same
    programming language?
 4. How do you deal with code complexity in your projects?
+5. What do you know now that you wish somebody told you earlier?
 
 
 Data
