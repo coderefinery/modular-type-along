@@ -36,6 +36,18 @@ Additional questions
    it?
 
 
+Learning topics
+---------------
+
+-  Know about pure functions (functions without side effects).
+-  Learn why and how to limit side effects of functions.
+-  Discuss why and how to limit side effects of data. Also discuss when
+   mutable data may be preferable.
+-  The Zen of Python: https://www.python.org/dev/peps/pep-0020/
+-  Discuss why single-purpose functions are often preferred over
+   multi-purpose functions.
+
+
 Data
 ----
 
@@ -68,18 +80,6 @@ plots.
 
 Before we attempt to do this, we discuss with workshop participants how
 they would tackle this problem.
-
-
-Learning topics
----------------
-
--  Know about pure functions (functions without side effects).
--  Learn why and how to limit side effects of functions.
--  Discuss why and how to limit side effects of data. Also discuss when
-   mutable data may be preferable.
--  The Zen of Python: https://www.python.org/dev/peps/pep-0020/
--  Discuss why single-purpose functions are often preferred over
-   multi-purpose functions.
 
 
 Additional exercises
