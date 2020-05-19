@@ -26,6 +26,16 @@ demo.
 5. What do you know now that you wish somebody told you earlier?
 
 
+Additional questions
+--------------------
+
+1. Do you design a new code project on paper before coding? Discuss pros
+   and cons.
+2. Do you build your code top-down or bottom-up? Discuss pros and cons.
+3. Would you prefer your code to be 2x slower if it was easier to read
+   it?
+
+
 Data
 ----
 
@@ -70,16 +80,6 @@ Learning topics
 -  The Zen of Python: https://www.python.org/dev/peps/pep-0020/
 -  Discuss why single-purpose functions are often preferred over
    multi-purpose functions.
-
-
-Additional questions
---------------------
-
-1. Do you design a new code project on paper before coding? Discuss pros
-   and cons.
-2. Do you build your code top-down or bottom-up? Discuss pros and cons.
-3. Would you prefer your code to be 2x slower if it was easier to read
-   it?
 
 
 Additional exercises
