@@ -49,7 +49,6 @@ We added axis labels
 --------------------
 
 .. code-block:: python
-  :emphasize-lines: 4,5
 
   import pandas as pd
   from matplotlib import pyplot as plt
