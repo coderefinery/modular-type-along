@@ -16,6 +16,9 @@ Emphasize that the example is Python but we will try to see "through"
 the code and focus on the bigger picture and hopefully manage to imagine
 other languages in its place.
 
+We collect ideas and feedback on HackMD while coding and the instructor
+tries to react to that without going into the rabbit hole.
+
 
 Our initial version
 -------------------
