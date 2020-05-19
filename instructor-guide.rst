@@ -148,7 +148,7 @@ Abstracting the plotting part into a function
 
 - Discuss what we expect before running it.
 - Then try it out.
-- Discuss problems with this approach.
+- Discuss problems with this solution.
 
 
 Small improvements
@@ -213,6 +213,8 @@ Command-line interface
 
 - Add a CLI for the input data file, the number of measurements, and the output
   file name.
+- Example here is using ``click`` but it can equally well be ``optparse``, ``argparse``,
+  or ``docopt``.
 - Discuss advantages of doing this.
 
 .. code-block:: python
