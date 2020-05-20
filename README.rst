@@ -75,8 +75,27 @@ Our initial goal
 Our initial goal for this exercise is to plot a series of temperatures
 for 25 measurements and to compute and plot the arithmetic mean. We
 imagine that we assemble a working script from various StackOverflow
-recommendations and arrive at `compute.py <compute.py>`__ (not a good
-name but we will discuss naming later).
+recommendations and arrive at:
+
+.. code-block:: python
+
+  import pandas as pd
+  from matplotlib import pyplot as plt
+
+  num_measurements = 25
+
+  # read data from file
+  data = pd.read_csv('temperatures.csv', nrows=num_measurements)
+  temperatures = data['Air temperature (degC)']
+
+  # compute statistics
+  mean = sum(temperatures)/num_measurements
+
+  # plot results
+  plt.plot(temperatures, 'r-')
+  plt.axhline(y=mean, color='b', linestyle='--')
+  plt.savefig('25.png')
+  plt.clf()
 
 This example is in Python but we will try to see "through" the code and
 focus on the bigger picture and hopefully manage to imagine other
