@@ -46,7 +46,8 @@ Additional questions
 Learning topics
 ---------------
 
--  Know about pure functions (functions without side effects).
+-  Know about pure functions (functions without side effects, functions which
+   given same input always return same output).
 -  Learn why and how to limit side effects of functions.
 -  Discuss why and how to limit side effects of data. Also discuss when
    mutable data may be preferable.
