@@ -51,8 +51,11 @@ recommendations and arrive at:
 - Add ``requirements.txt``.
 
 
-We added axis labels
---------------------
+We add axis labels
+------------------
+
+It's not the best placement but it works and later it will bite us (only the
+first plot will have labels) and we will improve it:
 
 .. code-block:: python
 
