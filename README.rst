@@ -109,6 +109,13 @@ Before we attempt to do this, we discuss with workshop participants how
 they would tackle this problem.
 
 
+Further goal
+------------
+
+Together we improve the code based on suggestions from learners towards
+more modularity and reusability.
+
+
 Additional exercises
 --------------------
 
