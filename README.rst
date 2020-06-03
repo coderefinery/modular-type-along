@@ -29,10 +29,8 @@ demo.
 1. What does "modular code development" mean for you?
 2. What best practices can you recommend to arrive at well structured,
    modular code in your favourite programming language?
-3. What would you recommend your colleague who starts in the same
-   programming language?
-4. How do you deal with code complexity in your projects?
-5. What do you know now that you wish somebody told you earlier?
+3. How do you deal with code complexity in your projects?
+4. What do you know now that you wish somebody told you earlier?
 
 
 Additional questions
