@@ -88,7 +88,8 @@ plots.
 Plotting also 100 and 500 measurements
 --------------------------------------
 
-Next idea is code duplication (discuss possible problems) or a loop:
+- Next idea is code duplication.
+- Then a loop:
 
 .. code-block:: python
 
@@ -157,7 +158,8 @@ Abstracting the plotting part into a function
 Small improvements
 ------------------
 
-More general. Notice how the comments got redundant:
+- Abstracting into more functions.
+- Notice how the comments got redundant:
 
 .. code-block:: python
 
@@ -199,26 +201,7 @@ Discuss what would happen if we copy-paste the functions to another project
 Enemy of the state
 ------------------
 
-Improve to more stateless functions.
-
-
-Unit tests
-----------
-
-Design code for testing.
-
-Discuss where to add a test and add a test to the statistics
-function.
-
-
-Command-line interface
-----------------------
-
-- Add a CLI for the input data file, the number of measurements, and the output
-  file name.
-- Example here is using ``click`` but it can equally well be ``optparse``, ``argparse``,
-  or ``docopt``.
-- Discuss advantages of doing this.
+Improve to more stateless functions:
 
 .. code-block:: python
 
@@ -246,8 +229,134 @@ Command-line interface
       return data[column]
 
 
+  for num_measurements in [25, 100, 500]:
+
+      temperatures = read_data(
+          file_name="temperatures.csv",
+          nrows=num_measurements,
+          column="Air temperature (degC)",
+      )
+
+      mean = compute_mean(temperatures)
+
+      plot_data(
+          data=temperatures,
+          mean=mean,
+          xlabel="measurements",
+          ylabel="air temperature (deg C)",
+          file_name=f"{num_measurements}.png",
+      )
+
+
+Unit tests
+----------
+
+Design code for testing.
+
+- Move the main scope code into a main function.
+- Discuss where to add a test and add a test to the statistics function:
+
+.. code-block:: python
+
+  import pandas as pd
+  from matplotlib import pyplot as plt
+  import click
+  import pytest
+
+
+  def plot_data(data, mean, xlabel, ylabel, file_name):
+      plt.plot(data, "r-")
+      plt.xlabel(xlabel)
+      plt.ylabel(ylabel)
+      plt.axhline(y=mean, color="b", linestyle="--")
+      plt.savefig(file_name)
+      plt.clf()
+
+
+  def compute_mean(data):
+      mean = sum(data) / len(data)
+      return mean
+
+
+  def test_compute_mean():
+      result = compute_mean([1.0, 2.0, 3.0, 4.0])
+      assert result == pytest.approx(2.5)
+
+
+  def read_data(file_name, nrows, column):
+      data = pd.read_csv(file_name, nrows=nrows)
+      return data[column]
+
+
+  def main():
+      for num_measurements in [25, 100, 500]:
+
+          temperatures = read_data(
+              file_name="temperatures.csv",
+              nrows=num_measurements,
+              column="Air temperature (degC)",
+          )
+
+          mean = compute_mean(temperatures)
+
+          plot_data(
+              data=temperatures,
+              mean=mean,
+              xlabel="measurements",
+              ylabel="air temperature (deg C)",
+              file_name=f"{num_measurements}.png",
+          )
+
+
+  if __name__ == "__main__":
+      main()
+
+
+Command-line interface
+----------------------
+
+- Add a CLI for the input data file, the number of measurements, and the output
+  file name.
+- Example here is using ``click`` but it can equally well be ``optparse``, ``argparse``,
+  or ``docopt``.
+- Discuss the motivations for adding a CLI.
+
+.. code-block:: python
+
+  import pandas as pd
+  from matplotlib import pyplot as plt
+  import click
+  import pytest
+
+
+  def plot_data(data, mean, xlabel, ylabel, file_name):
+      plt.plot(data, "r-")
+      plt.xlabel(xlabel)
+      plt.ylabel(ylabel)
+      plt.axhline(y=mean, color="b", linestyle="--")
+      plt.savefig(file_name)
+      plt.clf()
+
+
+  def compute_mean(data):
+      mean = sum(data) / len(data)
+      return mean
+
+
+  def test_compute_mean():
+      result = compute_mean([1.0, 2.0, 3.0, 4.0])
+      assert result == pytest.approx(2.5)
+
+
+  def read_data(file_name, nrows, column):
+      data = pd.read_csv(file_name, nrows=nrows)
+      return data[column]
+
+
   @click.command()
-  @click.option("--num-measurements", required=True, type=int, help="Number of measurements.")
+  @click.option(
+      "--num-measurements", required=True, type=int, help="Number of measurements."
+  )
   @click.option("--in-file", required=True, help="File name where we read from.")
   @click.option("--out-file", required=True, help="File name where we write to.")
   def main(num_measurements, in_file, out_file):
@@ -274,8 +383,9 @@ Command-line interface
 Split long script into modules
 ------------------------------
 
-- Discuss how you would move that function out and organize into a
-  separate module.
+- Discuss how you would move some functions out and organize them into separate
+  modules which can be imported to other projects: For instance
+  ``compute_mean`` can be moved to ``statistics.py``.
 - Discuss naming.
 - Discuss interface design.
 
