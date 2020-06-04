@@ -23,7 +23,7 @@ Starting questions for the `HackMD <https://hackmd.io>`__
 
 We share these questions in a common `HackMD <https://hackmd.io>`__ and we
 wait until we have sufficiently many answers to question 1. But we also
-encourage answering questions 2-5 which we revisit at the end of the
+encourage answering other questions which we revisit at the end of the
 demo.
 
 1. What does "modular code development" mean for you?
