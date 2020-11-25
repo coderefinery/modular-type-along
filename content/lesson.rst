@@ -6,7 +6,7 @@ Data
 ----
 
 The file `temperatures.csv
-<https://github.com/coderefinery/modular-type-along/blob/master/temperatures.csv>`__
+<https://github.com/coderefinery/modular-type-along/blob/master/data/temperatures.csv>`__
 contains hourly air temperature measurements for the time range November 1,
 2019 12:00 AM - November 30, 2019 11:59 PM for the observation station "Vantaa
 Helsinki-Vantaan lentoasema".
