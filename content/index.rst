@@ -19,6 +19,7 @@ But here we will try to do this as collaborative type-along.
    questions.rst
    learning-outcomes.rst
    lesson.rst
+   encapsulation.rst
 
 
 .. toctree::
