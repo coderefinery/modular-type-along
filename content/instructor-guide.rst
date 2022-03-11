@@ -5,15 +5,24 @@ Instructor guide (spoiler alert!)
 Before we start
 ---------------
 
-We don't have to follow this line by line but it's important to study
+We **don't have to follow this line by line** but it's important to study
 this example well before demonstrating this.
 
 Emphasize that the example is Python but we will try to see "through"
-the code and focus on the bigger picture and hopefully manage to imagine
+the code and **focus on the bigger picture** and hopefully manage to imagine
 other languages in its place.
 
-We collect ideas and feedback on HackMD while coding and the instructor
+We **collect ideas and feedback on HackMD while coding** and the instructor
 tries to react to that without going into the rabbit hole.
+
+We recommend to go through this together where the instructor(s) demonstrate(s)
+and learners can commend, suggest, and ask questions, and we are either all in
+the same video room or everybody is watching via stream. In other words, for
+this lesson, **learners are not in separate breakout-rooms**.
+
+Before you start or as you start, start with `git init` and **create commits
+after meaningful changes** and later also share the repository with learners.
+This nicely connects to other lessons of the workshop.
 
 
 Our initial version
@@ -44,7 +53,7 @@ recommendations and arrive at:
 
 
 - We test it.
-- Add ``requirements.txt``.
+- Add ``requirements.txt`` and motivate how that can be useful to have later.
 
 
 We add axis labels
@@ -85,8 +94,8 @@ plots.
 Plotting also 100 and 500 measurements
 --------------------------------------
 
-- Next idea is code duplication.
-- Then a loop:
+- Next idea is perhaps code duplication.
+- Then a for-loop to iterate over `[25, 100, 500]`:
 
 .. code-block:: python
    :emphasize-lines: 7
@@ -154,6 +163,11 @@ Abstracting the plotting part into a function
 - Then try it out (it actually works).
 - Discuss problems with this solution (what if we copy-paste the function to a different file?).
 
+The point of this step was that abstracting code into functions can be really
+good for reusability but just the fact that we created a function does not mean
+that the function is reusable since in this case it depends on a variable
+defined outside the function and hence there are side-effects.
+
 
 Small improvements
 ------------------
@@ -197,9 +211,13 @@ Small improvements
 Discuss what would happen if we copy-paste the functions to another project
 (these functions are stateful/time-dependent).
 
+Emphasize how stateful functions and order of execution in Jupyter notebooks
+can produce unexpected results and explain why we motivate to rerun all cells
+before sharing the notebook.
 
-Enemy of the state
-------------------
+
+Towards functions without side-effects
+--------------------------------------
 
 Improve to more stateless functions:
 
@@ -247,6 +265,9 @@ Improve to more stateless functions:
            ylabel="air temperature (deg C)",
            file_name=f"{num_measurements}.png",
        )
+
+These functions can now be copy-pasted to a different notebook or project and
+they will still work.
 
 
 Unit tests
@@ -320,7 +341,9 @@ Command-line interface
   file name.
 - Example here is using ``click`` but it can equally well be ``optparse``, ``argparse``,
   or ``docopt``.
-- Discuss the motivations for adding a CLI.
+- Discuss the motivations for adding a CLI:
+   - We are able to modify the behavior without changing the code
+   - We can run many of such scripts as part of a workflow
 
 .. code-block:: python
    :emphasize-lines: 4,31-37
@@ -395,5 +418,8 @@ Split long script into modules
 Summarize in the HackMD
 -----------------------
 
-Now return to initial questions on the HackMD and discuss questions and comments. If
-there is time left, there are additional questions and exercises.
+- Now return to initial questions on the HackMD and discuss questions and comments. If
+  there is time left, there are additional questions and exercises.
+- It is easier and more fun to teach this as a pair with somebody else where
+  one person can type and the other person helps watching the questions and
+  commends and relays them to the co-instructor.
