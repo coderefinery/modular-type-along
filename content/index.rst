@@ -26,4 +26,4 @@ But here we will try to do this as collaborative type-along.
    :maxdepth: 1
    :caption: A solution
 
-   instructor-guide.rst
+   instructor-guide
