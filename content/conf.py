@@ -18,10 +18,10 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Modular code development'
-copyright = '2020, CodeRefinery project'
+copyright = 'CodeRefinery project'
 author = 'CodeRefinery project'
 github_user = 'coderefinery'
-github_repo_name = ''  # auto-detected from dirname if blank
+github_repo_name = 'modular-type-along'  # auto-detected from dirname if blank
 github_version = 'master'
 conf_py_path = '/content/' # with leading and trailing slash
 
