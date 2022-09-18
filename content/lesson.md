@@ -57,9 +57,17 @@ they would tackle this problem.
 Together we improve the code based on suggestions from learners towards
 more modularity and re-usability.
 
+```{instructor-note}
+Participants give suggestions and ask questions via collaborative document
+and instructor(s) try to follow and answer. They can also roughly follow
+the ideas and steps in the instructor guide.
 
-Additional exercises
---------------------
+It is OK and good if mistakes happen and it is fun if the instructor(s) can
+convey a bit of "improv" feel to this lesson.
+```
+
+
+## Additional exercises
 
 Draw a call tree for one of your recent projects. Identify the
 functions in your call tree which are "pure" (which have no side-effects).
