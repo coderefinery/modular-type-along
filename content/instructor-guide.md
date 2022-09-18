@@ -338,8 +338,10 @@ if __name__ == "__main__":
 
 - Add a CLI for the input data file, the number of measurements, and the output
   file name.
-- Example here is using `click` but it can equally well be `optparse`, `argparse`,
-  or `docopt`.
+- Example here is using [click](https://click.palletsprojects.com/) but it can
+  equally well be [optparse](https://docs.python.org/3/library/optparse.html),
+  [argparse](https://docs.python.org/3/library/argparse.html),
+  [docopt](http://docopt.org/), or [Typer](https://typer.tiangolo.com/).
 - Discuss the motivations for adding a CLI:
    - We are able to modify the behavior without changing the code
    - We can run many of such scripts as part of a workflow
