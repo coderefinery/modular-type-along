@@ -18,7 +18,7 @@ But here we will try to do this as collaborative type-along.
 
    questions
    learning-outcomes
-   lesson.rst
+   lesson
    encapsulation
 
 
