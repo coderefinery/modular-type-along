@@ -10,5 +10,5 @@
   multi-purpose functions.
 - **Split-apply-combine**, which lets you more easily parallelize. Make your code
   modular in a way that lets you split the steps and parallelize.
-- Think about "global data structures" vs "local data structures". It is not easy to
+- Think about **global vs local** data structures. It is not easy to
   separate them right.
