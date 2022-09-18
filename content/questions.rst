@@ -1,7 +1,7 @@
 Starting questions for the collaborative document
 =================================================
 
-We share these questions in a common `HackMD <https://hackmd.io>`__ and we
+We share these questions in a common collaborative document and we
 wait until we have sufficiently many answers to question 1. But we also
 encourage answering other questions which we revisit at the end of the
 demo.
