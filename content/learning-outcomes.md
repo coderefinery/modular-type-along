@@ -12,3 +12,5 @@
   modular in a way that lets you split the steps and parallelize.
 - Think about **global vs local** data structures. It is not easy to
   separate them right.
+- Connect modular code development to the remaining lessons (version control, testing,
+  documentation, reusability).
