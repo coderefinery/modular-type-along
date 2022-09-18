@@ -1,5 +1,4 @@
-Starting questions for the collaborative document
-=================================================
+# Starting questions for the collaborative document
 
 We share these questions in a common collaborative document and we
 wait until we have sufficiently many answers to question 1. But we also
@@ -12,8 +11,7 @@ demo.
 3. What do you know now about programming that you wish somebody told you earlier?
 
 
-Additional questions
---------------------
+## Additional questions
 
 1. Do you design a new code project on paper before coding? Discuss pros
    and cons.
