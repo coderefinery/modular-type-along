@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Modular code development'
-copyright = '2020, CodeRefinery project'
+copyright = 'CodeRefinery project'
 author = 'CodeRefinery project'
 github_user = 'coderefinery'
 github_repo_name = ''  # auto-detected from dirname if blank
