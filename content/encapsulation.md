@@ -1,5 +1,4 @@
-Types of encapsulation
-======================
+# Types of encapsulation
 
 Let's say you want to move a code from one system to another.  What are the things that can go wrong?
 
