@@ -16,10 +16,10 @@ But here we will try to do this as collaborative type-along.
    :maxdepth: 1
    :caption: The lesson
 
-   questions.rst
+   questions
    learning-outcomes
    lesson.rst
-   encapsulation.rst
+   encapsulation
 
 
 .. toctree::
