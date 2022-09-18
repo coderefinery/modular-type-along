@@ -1,4 +1,4 @@
-# Learning topics
+# Learning outcomes
 
 - Know about **pure functions** (functions without side effects, functions which
   given same input always return same output).
