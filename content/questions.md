@@ -18,7 +18,7 @@ C. What do you know now about programming that you wish somebody told you earlie
 ```
 D. Do you design a new code project on paper before coding? Discuss pros
    and cons.
-E. Do you build your code top-down or bottom-up? Discuss pros and cons.
-F. Would you prefer your code to be 2x slower if it was easier to read
-   it?
+E. Do you build your code top-down (starting from the big picture) or bottom-up
+   (starting from components)? Discuss pros and cons.
+F. Would you prefer your code to be 2x slower if it was easier to read and understand?
 ```
