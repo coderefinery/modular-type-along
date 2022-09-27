@@ -15,7 +15,7 @@ Data obtained from
 ## Our initial goal
 
 Our initial goal for this exercise is to plot a series of temperatures
-for 25 measurements and to compute and plot the arithmetic mean. We
+for **25 measurements** and to compute and plot the **arithmetic mean**. We
 imagine that we assemble a working script from various StackOverflow
 recommendations and arrive at:
 
