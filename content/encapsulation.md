@@ -12,3 +12,12 @@ Let's say you want to move a code from one system to another.  What are the thin
 - Are you using something that is **OS-specific** (GNU/Linux vs BSD)?
 - Do you use support programs only available on certain computers?  Fewer
   external utilities you use = easier portability.
+
+
+## What needs to be global vs what needs to be local?
+
+- Global data can be "seen"/accessed in the entire code.
+- Local data is only available in the local vicinity of its definition.
+- Try to have as little global data as possible.
+- Global data are often input parameters, configuration parameters, command-line arguments.
+- But try to localize these to the "main" code/function.
