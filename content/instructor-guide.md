@@ -44,7 +44,7 @@ recommendations and arrive at:
 :language: python
 ```
 
-- We test it.
+- We test it out **in a notebook**.
 
 
 ## We add axis labels
