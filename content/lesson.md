@@ -60,7 +60,7 @@ more modularity and re-usability.
 ```{instructor-note}
 Participants give suggestions and ask questions via collaborative document
 and instructor(s) try to follow and answer. They can also roughly follow
-the ideas and steps in the instructor guide.
+the ideas and steps in the {ref}`guide`.
 
 It is OK and good if mistakes happen and it is fun if the instructor(s) can
 convey a bit of "improv" feel to this lesson.

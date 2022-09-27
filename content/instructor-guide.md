@@ -1,3 +1,5 @@
+(guide)=
+
 # Instructor guide (spoiler alert!)
 
 
