@@ -98,7 +98,7 @@ defined outside the function and hence there are side-effects.
 
 ```{literalinclude} code/small-improvements.py
 :language: python
-:emphasize-lines: 27,29,31
+:emphasize-lines: 27-35
 ```
 
 Discuss what would happen if we copy-paste the functions to another project
