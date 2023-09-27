@@ -31,7 +31,7 @@ this lesson, **learners are not in separate breakout-rooms**.
 - Initialize git
 - Add `requirements.txt`
 - Add test
-- Add command line interface
+- **Add command line interface**
 - Split into multiple files/modules
 
 
