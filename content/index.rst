@@ -4,6 +4,9 @@ Modular code development - Making reusing parts of your code easier
 Type-along/demo where we discuss and experience aspects of (un)modular
 code development. **We will focus on the "why", not on the "how"**.
 
+Image to get started: `The curse of bad code design <https://doi.org/10.1371/journal.pcbi.1008549.g005>`_
+(Ten simple rules for quick and dirty scientific programming. PLoS Comput Biol 17(3): e1008549. https://doi.org/10.1371/journal.pcbi.1008549)
+
 
 Slides
 ------
