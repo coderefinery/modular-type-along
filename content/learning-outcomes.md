@@ -12,5 +12,7 @@
   modular in a way that lets you split the steps and parallelize.
 - Think about **global vs local** data structures. It is not easy to
   separate them right.
+- Understand how a command line interface to a code can improve usability and also
+  make the code more versatile (to be combined with workflow management tools).
 - Connect modular code development to the remaining lessons (version control, testing,
   documentation, reusability).
