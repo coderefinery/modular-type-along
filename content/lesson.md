@@ -21,7 +21,7 @@ under the Creative Commons Attribution 4.0 International license (CC BY 4.0):
 
 Our initial goal for this exercise is to plot a series of temperatures
 for **25 measurements** and to compute and plot the **arithmetic mean**. We
-imagine that we assemble a working script from various StackOverflow
+imagine that we assemble a working script from various StackOverflow/ChatGPT
 recommendations and arrive at:
 
 ```{literalinclude} code/initial-version.py
