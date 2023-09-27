@@ -8,8 +8,11 @@ code development. **We will focus on the "why", not on the "how"**.
 Slides
 ------
 
-We also have some slides: https://github.com/coderefinery/modular-code-development.
-But here we will try to do this as collaborative type-along.
+We also have some slides:
+https://github.com/coderefinery/modular-code-development.  But here we will try
+to do this as collaborative type-along where instructors try to solve a problem
+together and where learners guide the instructors through a collaborative
+document.
 
 
 .. toctree::
