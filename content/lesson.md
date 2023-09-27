@@ -29,11 +29,16 @@ languages in its place. For the Python experts: we will not see the most
 elegant Python.
 
 
-## Further goal
+## Further goals
 
-Once we get this working for **25 measurements**, our task changes to also
-plot the **first 100** and the **first 500 measurements** in two additional
-plots.
+- Once we get this working for **25 measurements**, our task changes to also
+  plot the **first 100** and the **first 500 measurements** in two additional
+  plots.
+- Then we wish to generalize the code so that a user can compute and plot this
+  for **any number**, **without changing the code** (with a command line interface).
+
+
+## How we plan to solve it
 
 Before we attempt to do this, we discuss with workshop participants how
 they would tackle this problem.
