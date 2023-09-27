@@ -4,16 +4,17 @@
 ## Data
 
 The file [temperatures.csv](https://github.com/coderefinery/modular-type-along/blob/main/data/temperatures.csv)
-contains hourly air temperature measurements for the time range November 1,
-2019 12:00 AM - November 30, 2019 11:59 PM for the observation station "Vantaa
-Helsinki-Vantaan lentoasema".
+contains hourly air temperature measurements for the observation station
+"Vantaa Helsinki-Vantaan lentoasema" (Helsinki airport) during 2022.
 
+```{admonition} Origin of the data
 Data obtained from
-<https://en.ilmatieteenlaitos.fi/download-observations#!/> on 2019-12-09.
+<https://en.ilmatieteenlaitos.fi/download-observations#!/> on 2023-09-27.
 
 Data has been provided by the Finnish Meteorological Institute
 under the Creative Commons Attribution 4.0 International license (CC BY 4.0):
 <https://en.ilmatieteenlaitos.fi/open-data-licence>
+```
 
 
 ## Our initial goal
