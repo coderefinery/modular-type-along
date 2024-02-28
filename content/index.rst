@@ -30,9 +30,10 @@ document.
 
 .. toctree::
    :maxdepth: 1
-   :caption: A solution
+   :caption: Solution
 
-   instructor-guide
+   solution
+
 
 
 .. toctree::

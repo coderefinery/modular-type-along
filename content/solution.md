@@ -1,6 +1,6 @@
 (guide)=
 
-# Instructor guide (spoiler alert!)
+# An iterative solution
 
 
 ## Before we start
