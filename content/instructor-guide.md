@@ -44,6 +44,17 @@ recommendations and arrive at:
 :language: python
 ```
 
+
+`````{tabs}
+````{group-tab} Python
+
+```{literalinclude} code/initial-version.py
+:language: python
+```
+
+````
+`````
+
 - We test it out **in a notebook**.
 
 
@@ -52,10 +63,16 @@ recommendations and arrive at:
 It's not the best placement but it works and later it will bite us (only the
 first plot will have labels) and we will improve it:
 
+`````{tabs}
+````{group-tab} Python
+
 ```{literalinclude} code/with-axis-labels.py
 :language: python
 :emphasize-lines: 4,5
 ```
+
+````
+`````
 
 Once we get this working for 25 measurements, our task changes to also
 plot the first 100 and the first 500 measurements in two additional
@@ -67,18 +84,30 @@ plots.
 - Next idea is perhaps code duplication.
 - Then a for-loop to iterate over `[25, 100, 500]`:
 
+`````{tabs}
+````{group-tab} Python
+
 ```{literalinclude} code/add-iteration.py
 :language: python
 :emphasize-lines: 7
 ```
 
+````
+`````
+
 
 ## Abstracting the plotting part into a function
+
+`````{tabs}
+````{group-tab} Python
 
 ```{literalinclude} code/abstracting-plot.py
 :language: python
 :emphasize-lines: 8-13,26-30
 ```
+
+````
+`````
 
 - Discuss what we expect before running it (some will expect this not to work
   because variables seem undefined).
@@ -96,10 +125,16 @@ defined outside the function and hence there are side-effects.
 - Abstracting into more functions.
 - Notice how the comments got redundant:
 
+`````{tabs}
+````{group-tab} Python
+
 ```{literalinclude} code/small-improvements.py
 :language: python
 :emphasize-lines: 27-35
 ```
+
+````
+`````
 
 Discuss what would happen if we copy-paste the functions to another project
 (these functions are stateful/time-dependent).
@@ -113,10 +148,16 @@ before sharing the notebook.
 
 Improve to more stateless functions:
 
+`````{tabs}
+````{group-tab} Python
+
 ```{literalinclude} code/towards-pure.py
 :language: python
 :emphasize-lines: 6,15,20
 ```
+
+````
+`````
 
 These functions can now be copy-pasted to a different notebook or project and
 they will still work.
@@ -144,11 +185,16 @@ Design code for testing.
 - Move the main scope code into a main function.
 - Discuss where to add a test and add a test to the statistics function:
 
+`````{tabs}
+````{group-tab} Python
+
 ```{literalinclude} code/testing.py
 :language: python
 :emphasize-lines: 3,11,21-23
 ```
 
+````
+`````
 
 ## Command-line interface
 
@@ -162,10 +208,16 @@ Design code for testing.
    - We are able to modify the behavior without changing the code
    - We can run many of such scripts as part of a workflow
 
+`````{tabs}
+````{group-tab} Python
+
 ```{literalinclude} code/cli.py
 :language: python
 :emphasize-lines: 4,31-37
 ```
+
+````
+`````
 
 
 ## Split long script into modules
