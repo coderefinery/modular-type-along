@@ -1,6 +1,6 @@
 (guide)=
 
-# Instructor guide (spoiler alert!)
+# An iterative solution
 
 
 ## Before we start
@@ -39,11 +39,6 @@ this lesson, **learners are not in separate breakout-rooms**.
 
 We imagine that we assemble a working script from various StackOverflow
 recommendations and arrive at:
-
-```{literalinclude} code/initial-version.py
-:language: python
-```
-
 
 `````{tabs}
 ````{group-tab} Python
