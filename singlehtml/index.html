@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modular code development documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_lesson.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_rtd_theme_ext_color_contrast.css" />
+      <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+
+  
+    <link rel="shortcut icon" href="_static/coderefinery.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/minipres.js"></script>
+        <script src="_static/tabs.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script data-domain="coderefinery.github.io" defer="defer" src="https://plausible.cs.aalto.fi/js/script.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Modular code development
+          </a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">The lesson</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-questions">Starting questions for the collaborative document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-learning-outcomes">Learning outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-lesson">Our task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-encapsulation">Types of encapsulation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Solution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-solution">An iterative solution</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Modular code development</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Modular code development  documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/modular-type-along/blob/main/content/index" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="modular-code-development-making-reusing-parts-of-your-code-easier">
+<h1>Modular code development - Making reusing parts of your code easier<a class="headerlink" href="#modular-code-development-making-reusing-parts-of-your-code-easier" title="Link to this heading"></a></h1>
+<p>Type-along/demo where we discuss and experience aspects of (un)modular
+code development. <strong>We will focus on the “why”, not on the “how”</strong>.</p>
+<p>Image to get started: <a class="reference external" href="https://doi.org/10.1371/journal.pcbi.1008549.g005">The curse of bad code design</a>
+(Ten simple rules for quick and dirty scientific programming. PLoS Comput Biol 17(3): e1008549. <a class="reference external" href="https://doi.org/10.1371/journal.pcbi.1008549">https://doi.org/10.1371/journal.pcbi.1008549</a>)</p>
+<section id="slides">
+<h2>Slides<a class="headerlink" href="#slides" title="Link to this heading"></a></h2>
+<p>We also have some slides:
+<a class="reference external" href="https://github.com/coderefinery/modular-code-development">https://github.com/coderefinery/modular-code-development</a>.  But here we will try
+to do this as collaborative type-along where instructors try to solve a problem
+together and where learners guide the instructors through a collaborative
+document.</p>
+<div class="toctree-wrapper compound">
+<span id="document-questions"></span><section id="starting-questions-for-the-collaborative-document">
+<h3>Starting questions for the collaborative document<a class="headerlink" href="#starting-questions-for-the-collaborative-document" title="Link to this heading"></a></h3>
+<p>We share these questions in a common collaborative document and we
+wait until we have sufficiently many answers to question A. But we also
+encourage answering other questions which we revisit at the end of the
+demo.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A. What does &quot;modular code development&quot; mean for you?
+B. What best practices can you recommend to arrive at well structured,
+   modular code in your favourite programming language?
+C. What do you know now about programming that you wish somebody told you earlier?
+</pre></div>
+</div>
+<section id="additional-questions">
+<h4>Additional questions<a class="headerlink" href="#additional-questions" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>D. Do you design a new code project on paper before coding? Discuss pros
+   and cons.
+E. Do you build your code top-down (starting from the big picture) or bottom-up
+   (starting from components)? Discuss pros and cons.
+F. Would you prefer your code to be 2x slower if it was easier to read and understand?
+</pre></div>
+</div>
+</section>
+</section>
+<span id="document-learning-outcomes"></span><section id="learning-outcomes">
+<h3>Learning outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Know about <strong>pure functions</strong> (functions without side effects, functions which
+given same input always return same output).</p></li>
+<li><p>Learn why and how to <strong>limit side effects</strong> of functions.</p></li>
+<li><p>Discuss why and how to limit side effects of data. Also discuss when
+mutable data may be preferable.</p></li>
+<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0020/">The Zen of Python</a></p></li>
+<li><p>Discuss why <strong>single-purpose functions</strong> are often preferred over
+multi-purpose functions.</p></li>
+<li><p><strong>Split-apply-combine</strong>, which lets you more easily parallelize. Make your code
+modular in a way that lets you split the steps and parallelize.</p></li>
+<li><p>Think about <strong>global vs local</strong> data structures. It is not easy to
+separate them right.</p></li>
+<li><p>Understand how a command line interface to a code can improve usability and also
+make the code more versatile (to be combined with workflow management tools).</p></li>
+<li><p>Connect modular code development to the remaining lessons (version control, testing,
+documentation, reusability).</p></li>
+</ul>
+</section>
+<span id="document-lesson"></span><section id="our-task">
+<h3>Our task<a class="headerlink" href="#our-task" title="Link to this heading"></a></h3>
+<section id="data">
+<h4>Data<a class="headerlink" href="#data" title="Link to this heading"></a></h4>
+<p>The file <a class="reference external" href="https://github.com/coderefinery/modular-type-along/blob/main/data/temperatures.csv">temperatures.csv</a>
+contains hourly air temperature measurements for the observation station
+“Vantaa Helsinki-Vantaan lentoasema” (Helsinki airport) during 2022.</p>
+<div class="admonition-origin-of-the-data admonition">
+<p class="admonition-title">Origin of the data</p>
+<p>Data obtained from
+<a class="reference external" href="https://en.ilmatieteenlaitos.fi/download-observations#!/">https://en.ilmatieteenlaitos.fi/download-observations#!/</a> on 2023-09-27.</p>
+<p>Data has been provided by the Finnish Meteorological Institute
+under the Creative Commons Attribution 4.0 International license (CC BY 4.0):
+<a class="reference external" href="https://en.ilmatieteenlaitos.fi/open-data-licence">https://en.ilmatieteenlaitos.fi/open-data-licence</a></p>
+</div>
+</section>
+<section id="our-initial-goal">
+<h4>Our initial goal<a class="headerlink" href="#our-initial-goal" title="Link to this heading"></a></h4>
+<p>Our initial goal for this exercise is to plot a series of temperatures
+for <strong>25 measurements</strong> and to compute and plot the <strong>arithmetic mean</strong>. We
+imagine that we assemble a working script from various StackOverflow/ChatGPT
+recommendations and arrive at:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">num_measurements</span> <span class="o">=</span> <span class="mi">25</span>
+
+<span class="c1"># read data from file</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;temperatures.csv&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">num_measurements</span><span class="p">)</span>
+<span class="n">temperatures</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Air temperature (degC)&quot;</span><span class="p">]</span>
+
+<span class="c1"># compute statistics</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span> <span class="o">/</span> <span class="n">num_measurements</span>
+
+<span class="c1"># plot results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;25.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This example is in Python but we will try to see “through” the code and
+focus on the bigger picture and hopefully manage to imagine other
+languages in its place. For the Python experts: we will not see the most
+elegant Python.</p>
+</section>
+<section id="further-goals">
+<h4>Further goals<a class="headerlink" href="#further-goals" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Once we get this working for <strong>25 measurements</strong>, our task changes to also
+plot the <strong>first 100</strong> and the <strong>first 500 measurements</strong> in two additional
+plots.</p></li>
+<li><p>Then we wish to generalize the code so that a user can compute and plot this
+for <strong>any number</strong>, <strong>without changing the code</strong> (with a command line interface).</p></li>
+</ul>
+</section>
+<section id="how-we-plan-to-solve-it">
+<h4>How we plan to solve it<a class="headerlink" href="#how-we-plan-to-solve-it" title="Link to this heading"></a></h4>
+<p>Before we attempt to do this, we discuss with workshop participants how
+they would tackle this problem.</p>
+<p>Together we improve the code based on suggestions from learners towards
+more modularity and re-usability.</p>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<p>Participants give suggestions and ask questions via collaborative document
+and instructor(s) try to follow and answer. They can also roughly follow
+the ideas and steps in the <a class="reference internal" href="index.html#guide"><span class="std std-ref">An iterative solution</span></a>.</p>
+<p>It is OK and good if mistakes happen and it is fun if the instructor(s) can
+convey a bit of “improv” feel to this lesson.</p>
+</div>
+</section>
+<section id="additional-exercises">
+<h4>Additional exercises<a class="headerlink" href="#additional-exercises" title="Link to this heading"></a></h4>
+<p>Draw a call tree for one of your recent projects. Identify the
+functions in your call tree which are “pure” (which have no side-effects).</p>
+</section>
+</section>
+<span id="document-encapsulation"></span><section id="types-of-encapsulation">
+<h3>Types of encapsulation<a class="headerlink" href="#types-of-encapsulation" title="Link to this heading"></a></h3>
+<p>Let’s say you want to move a code from one system to another.  What are the things that can go wrong?</p>
+<ul class="simple">
+<li><p><strong>In-language dependencies</strong>, e.g. Python. Can they all be expressed <em>only</em> in
+<code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>?  Do you wrap everything in a container?</p></li>
+<li><p><strong>Paths</strong>: Can you always use relative paths?</p></li>
+<li><p><strong>Operating-system (OS) dependencies, libraries, etc.</strong>: Can you eliminate them?</p></li>
+<li><p><strong>Data files</strong>: Are they controlled or few that you can migrate, or if you wanted
+to move it, are you forced to copy the whole directory without regard to what
+the file is (thus creating a lot of duplicates, and a big mess?)</p></li>
+<li><p>Are you using something that is <strong>OS-specific</strong> (GNU/Linux vs BSD)?</p></li>
+<li><p>Do you use support programs only available on certain computers?  Fewer
+external utilities you use = easier portability.</p></li>
+</ul>
+<section id="what-needs-to-be-global-vs-what-needs-to-be-local">
+<h4>What needs to be global vs what needs to be local?<a class="headerlink" href="#what-needs-to-be-global-vs-what-needs-to-be-local" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Global data can be “seen”/accessed in the entire code.</p></li>
+<li><p>Local data is only available in the local vicinity of its definition.</p></li>
+<li><p>Try to have as little global data as possible.</p></li>
+<li><p>Global data are often input parameters, configuration parameters, command-line arguments.</p></li>
+<li><p>But try to localize these to the “main” code/function.</p></li>
+</ul>
+</section>
+</section>
+</div>
+<div class="toctree-wrapper compound">
+<span id="document-solution"></span><section id="an-iterative-solution">
+<span id="guide"></span><h3>An iterative solution<a class="headerlink" href="#an-iterative-solution" title="Link to this heading"></a></h3>
+<section id="before-we-start">
+<h4>Before we start<a class="headerlink" href="#before-we-start" title="Link to this heading"></a></h4>
+<p>We <strong>don’t have to follow this line by line</strong> but it’s important to study
+this example well before demonstrating this.</p>
+<p>Emphasize that the example is Python but we will try to see “through”
+the code and <strong>focus on the bigger picture</strong> and hopefully manage to imagine
+other languages in its place.</p>
+<p>We <strong>collect ideas and feedback in the collaborative document while coding</strong> and the instructor
+tries to react to that without going into the rabbit hole.</p>
+<p>We recommend to go through this together where the instructor(s) demonstrate(s)
+and learners can commend, suggest, and ask questions, and we are either all in
+the same video room or everybody is watching via stream. In other words, for
+this lesson, <strong>learners are not in separate breakout-rooms</strong>.</p>
+</section>
+<section id="checklist">
+<h4>Checklist<a class="headerlink" href="#checklist" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Start with notebook</p></li>
+<li><p>Generalize from 1 figure to 3 figures</p></li>
+<li><p>Abstract code into functions</p></li>
+<li><p>From functions with side-effects towards stateless functions</p></li>
+<li><p>Move from notebook to script</p></li>
+<li><p>Initialize git</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p></li>
+<li><p>Add test</p></li>
+<li><p><strong>Add command line interface</strong></p></li>
+<li><p>Split into multiple files/modules</p></li>
+</ul>
+</section>
+<section id="our-initial-version">
+<h4>Our initial version<a class="headerlink" href="#our-initial-version" title="Link to this heading"></a></h4>
+<p>We imagine that we assemble a working script from various StackOverflow
+recommendations and arrive at:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button></div><div aria-labelledby="tab-0-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-0-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">num_measurements</span> <span class="o">=</span> <span class="mi">25</span>
+
+<span class="c1"># read data from file</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;temperatures.csv&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">num_measurements</span><span class="p">)</span>
+<span class="n">temperatures</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Air temperature (degC)&quot;</span><span class="p">]</span>
+
+<span class="c1"># compute statistics</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span> <span class="o">/</span> <span class="n">num_measurements</span>
+
+<span class="c1"># plot results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;25.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></div>
+<ul class="simple">
+<li><p>We test it out <strong>in a notebook</strong>.</p></li>
+</ul>
+</section>
+<section id="we-add-axis-labels">
+<h4>We add axis labels<a class="headerlink" href="#we-add-axis-labels" title="Link to this heading"></a></h4>
+<p>It’s not the best placement but it works and later it will bite us (only the
+first plot will have labels) and we will improve it:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button></div><div aria-labelledby="tab-1-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-1-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="hll"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;measurements&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;air temperature (deg C)&quot;</span><span class="p">)</span>
+</span>
+<span class="n">num_measurements</span> <span class="o">=</span> <span class="mi">25</span>
+
+<span class="c1"># read data from file</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;temperatures.csv&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">num_measurements</span><span class="p">)</span>
+<span class="n">temperatures</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Air temperature (degC)&quot;</span><span class="p">]</span>
+
+<span class="c1"># compute statistics</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span> <span class="o">/</span> <span class="n">num_measurements</span>
+
+<span class="c1"># plot results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;25.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></div>
+<p>Once we get this working for 25 measurements, our task changes to also
+plot the first 100 and the first 500 measurements in two additional
+plots.</p>
+</section>
+<section id="plotting-also-100-and-500-measurements">
+<h4>Plotting also 100 and 500 measurements<a class="headerlink" href="#plotting-also-100-and-500-measurements" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Next idea is perhaps code duplication.</p></li>
+<li><p>Then a for-loop to iterate over <code class="docutils literal notranslate"><span class="pre">[25,</span> <span class="pre">100,</span> <span class="pre">500]</span></code>:</p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button></div><div aria-labelledby="tab-2-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-2-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;measurements&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;air temperature (deg C)&quot;</span><span class="p">)</span>
+
+<span class="hll"><span class="k">for</span> <span class="n">num_measurements</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">]:</span>
+</span>
+    <span class="c1"># read data from file</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;temperatures.csv&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">num_measurements</span><span class="p">)</span>
+    <span class="n">temperatures</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Air temperature (degC)&quot;</span><span class="p">]</span>
+
+    <span class="c1"># compute statistics</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span> <span class="o">/</span> <span class="n">num_measurements</span>
+
+    <span class="c1"># plot results</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num_measurements</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="abstracting-the-plotting-part-into-a-function">
+<h4>Abstracting the plotting part into a function<a class="headerlink" href="#abstracting-the-plotting-part-into-a-function" title="Link to this heading"></a></h4>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-3-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button></div><div aria-labelledby="tab-3-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-3-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;measurements&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;air temperature (deg C)&quot;</span><span class="p">)</span>
+
+
+<span class="hll"><span class="k">def</span> <span class="nf">plot_temperatures</span><span class="p">(</span><span class="n">temperatures</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span class="hll">    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num_measurements</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+</span>
+
+<span class="k">for</span> <span class="n">num_measurements</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">]:</span>
+
+    <span class="c1"># read data from file</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;temperatures.csv&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">num_measurements</span><span class="p">)</span>
+    <span class="n">temperatures</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Air temperature (degC)&quot;</span><span class="p">]</span>
+
+    <span class="c1"># compute statistics</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span> <span class="o">/</span> <span class="n">num_measurements</span>
+
+    <span class="c1"># plot results</span>
+<span class="hll">    <span class="c1">#   plt.plot(temperatures, &#39;r-&#39;)</span>
+</span><span class="hll">    <span class="c1">#   plt.axhline(y=mean, color=&#39;b&#39;, linestyle=&#39;--&#39;)</span>
+</span><span class="hll">    <span class="c1">#   plt.show()</span>
+</span><span class="hll">    <span class="c1">#   plt.savefig(f&#39;{num_measurements}.png&#39;)</span>
+</span><span class="hll">    <span class="c1">#   plt.clf()</span>
+</span>    <span class="n">plot_temperatures</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></div>
+<ul class="simple">
+<li><p>Discuss what we expect before running it (some will expect this not to work
+because variables seem undefined).</p></li>
+<li><p>Then try it out (it actually works).</p></li>
+<li><p>Discuss problems with this solution (what if we copy-paste the function to a different file?).</p></li>
+</ul>
+<p>The point of this step was that abstracting code into functions can be really
+good for reusability but just the fact that we created a function does not mean
+that the function is reusable since in this case it depends on a variable
+defined outside the function and hence there are side-effects.</p>
+</section>
+<section id="small-improvements">
+<h4>Small improvements<a class="headerlink" href="#small-improvements" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Abstracting into more functions.</p></li>
+<li><p>Notice how the comments got redundant:</p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-4-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-4-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button></div><div aria-labelledby="tab-4-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-4-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">xlabel</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num_measurements</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">compute_statistics</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="n">num_measurements</span>
+    <span class="k">return</span> <span class="n">mean</span>
+
+
+<span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">column</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">num_measurements</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+
+
+<span class="k">for</span> <span class="n">num_measurements</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">]:</span>
+
+<span class="hll">    <span class="n">temperatures</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span>
+</span><span class="hll">        <span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;temperatures.csv&quot;</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s2">&quot;Air temperature (degC)&quot;</span>
+</span><span class="hll">    <span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="n">mean</span> <span class="o">=</span> <span class="n">compute_statistics</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="n">plot_data</span><span class="p">(</span>
+</span><span class="hll">        <span class="n">data</span><span class="o">=</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;measurements&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;air temperature (deg C)&quot;</span>
+</span><span class="hll">    <span class="p">)</span>
+</span></pre></div>
+</div>
+</div></div>
+<p>Discuss what would happen if we copy-paste the functions to another project
+(these functions are stateful/time-dependent).</p>
+<p>Emphasize how stateful functions and order of execution in Jupyter notebooks
+can produce unexpected results and explain why we motivate to rerun all cells
+before sharing the notebook.</p>
+</section>
+<section id="towards-functions-without-side-effects">
+<h4>Towards functions without side-effects<a class="headerlink" href="#towards-functions-without-side-effects" title="Link to this heading"></a></h4>
+<p>Improve to more stateless functions:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-5-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-5-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button></div><div aria-labelledby="tab-5-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-5-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">xlabel</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">,</span> <span class="n">file_name</span><span class="p">):</span>
+<span class="hll">    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+</span>    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+
+
+<span class="hll"><span class="k">def</span> <span class="nf">compute_mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+</span>    <span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mean</span>
+
+
+<span class="hll"><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">column</span><span class="p">):</span>
+</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+
+
+<span class="k">for</span> <span class="n">num_measurements</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">]:</span>
+
+    <span class="n">temperatures</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span>
+        <span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;temperatures.csv&quot;</span><span class="p">,</span>
+        <span class="n">nrows</span><span class="o">=</span><span class="n">num_measurements</span><span class="p">,</span>
+        <span class="n">column</span><span class="o">=</span><span class="s2">&quot;Air temperature (degC)&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">compute_mean</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span>
+
+    <span class="n">plot_data</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">temperatures</span><span class="p">,</span>
+        <span class="n">mean</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span>
+        <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;measurements&quot;</span><span class="p">,</span>
+        <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;air temperature (deg C)&quot;</span><span class="p">,</span>
+        <span class="n">file_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num_measurements</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div></div>
+<p>These functions can now be copy-pasted to a different notebook or project and
+they will still work.</p>
+</section>
+<section id="move-from-notebook-to-script">
+<h4>Move from notebook to script<a class="headerlink" href="#move-from-notebook-to-script" title="Link to this heading"></a></h4>
+<p>Adding unit tests is often the moment when notebook is not the right fit
+anymore.</p>
+<p>But before we add tests:</p>
+<ul class="simple">
+<li><p>“File” -&gt; “Save and Export Notebook As …” -&gt; “Executable Script”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> and commit the working version.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> and motivate how that can be useful to have later.</p></li>
+</ul>
+<p>As we continue from here, <strong>create commits after meaningful changes</strong> and later
+also share the repository with learners.  This nicely connects to other lessons
+of the workshop.</p>
+</section>
+<section id="unit-tests">
+<h4>Unit tests<a class="headerlink" href="#unit-tests" title="Link to this heading"></a></h4>
+<p>Design code for testing.</p>
+<ul class="simple">
+<li><p>Move the main scope code into a main function.</p></li>
+<li><p>Discuss where to add a test and add a test to the statistics function:</p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-6-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-6-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button></div><div aria-labelledby="tab-6-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-6-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="hll"><span class="kn">import</span> <span class="nn">pytest</span>
+</span>
+
+<span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">xlabel</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">,</span> <span class="n">file_name</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="hll">    <span class="c1">#   plt.show()</span>
+</span>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">compute_mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mean</span>
+
+
+<span class="hll"><span class="k">def</span> <span class="nf">test_compute_mean</span><span class="p">():</span>
+</span><span class="hll">    <span class="n">result</span> <span class="o">=</span> <span class="n">compute_mean</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">])</span>
+</span><span class="hll">    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span>
+</span>
+
+<span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">column</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">num_measurements</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">]:</span>
+
+        <span class="n">temperatures</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span>
+            <span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;temperatures.csv&quot;</span><span class="p">,</span>
+            <span class="n">nrows</span><span class="o">=</span><span class="n">num_measurements</span><span class="p">,</span>
+            <span class="n">column</span><span class="o">=</span><span class="s2">&quot;Air temperature (degC)&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">mean</span> <span class="o">=</span> <span class="n">compute_mean</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span>
+
+        <span class="n">plot_data</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">temperatures</span><span class="p">,</span>
+            <span class="n">mean</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span>
+            <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;measurements&quot;</span><span class="p">,</span>
+            <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;air temperature (deg C)&quot;</span><span class="p">,</span>
+            <span class="n">file_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num_measurements</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="command-line-interface">
+<h4>Command-line interface<a class="headerlink" href="#command-line-interface" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Add a CLI for the input data file, the number of measurements, and the output
+file name.</p></li>
+<li><p>Example here is using <a class="reference external" href="https://click.palletsprojects.com/">click</a> but it can
+equally well be <a class="reference external" href="https://docs.python.org/3/library/optparse.html">optparse</a>,
+<a class="reference external" href="https://docs.python.org/3/library/argparse.html">argparse</a>,
+<a class="reference external" href="http://docopt.org/">docopt</a>, or <a class="reference external" href="https://typer.tiangolo.com/">Typer</a>.</p></li>
+<li><p>Discuss the motivations for adding a CLI:</p>
+<ul>
+<li><p>We are able to modify the behavior without changing the code</p></li>
+<li><p>We can run many of such scripts as part of a workflow</p></li>
+</ul>
+</li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-7-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-7-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button></div><div aria-labelledby="tab-7-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-7-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="hll"><span class="kn">import</span> <span class="nn">click</span>
+</span>
+
+<span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">xlabel</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">,</span> <span class="n">file_name</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">compute_mean</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mean</span>
+
+
+<span class="k">def</span> <span class="nf">test_compute_mean</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">compute_mean</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">column</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+
+
+<span class="hll"><span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+</span><span class="hll"><span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span>
+</span><span class="hll">    <span class="s2">&quot;--num-measurements&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Number of measurements.&quot;</span>
+</span><span class="hll"><span class="p">)</span>
+</span><span class="hll"><span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--in-file&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;File name where we read from.&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--out-file&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;File name where we write to.&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">num_measurements</span><span class="p">,</span> <span class="n">in_file</span><span class="p">,</span> <span class="n">out_file</span><span class="p">):</span>
+</span>
+    <span class="n">temperatures</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span>
+        <span class="n">file_name</span><span class="o">=</span><span class="n">in_file</span><span class="p">,</span>
+        <span class="n">nrows</span><span class="o">=</span><span class="n">num_measurements</span><span class="p">,</span>
+        <span class="n">column</span><span class="o">=</span><span class="s2">&quot;Air temperature (degC)&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">compute_mean</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span>
+
+    <span class="n">plot_data</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">temperatures</span><span class="p">,</span>
+        <span class="n">mean</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span>
+        <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;measurements&quot;</span><span class="p">,</span>
+        <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;air temperature (deg C)&quot;</span><span class="p">,</span>
+        <span class="n">file_name</span><span class="o">=</span><span class="n">out_file</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="split-long-script-into-modules">
+<h4>Split long script into modules<a class="headerlink" href="#split-long-script-into-modules" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Discuss how you would move some functions out and organize them into separate
+modules which can be imported to other projects: For instance
+<code class="docutils literal notranslate"><span class="pre">compute_mean</span></code> can be moved to <code class="docutils literal notranslate"><span class="pre">statistics.py</span></code>.</p></li>
+<li><p>Discuss naming.</p></li>
+<li><p>Discuss interface design.</p></li>
+</ul>
+</section>
+<section id="summarize-in-the-collaborative-document">
+<h4>Summarize in the collaborative document<a class="headerlink" href="#summarize-in-the-collaborative-document" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Now return to initial questions on the collaborative document and discuss questions and comments. If
+there is time left, there are additional questions and exercises.</p></li>
+<li><p>It is easier and more fun to teach this as a pair with somebody else where
+one person can type and the other person helps watching the questions and
+commends and relays them to the co-instructor.</p></li>
+</ul>
+</section>
+</section>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
