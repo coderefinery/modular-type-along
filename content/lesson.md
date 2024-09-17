@@ -3,7 +3,7 @@
 
 ## Data
 
-The file [temperatures.csv](https://github.com/coderefinery/modular-type-along/blob/main/data/temperatures.csv)
+The file [temperatures.csv](https://github.com/coderefinery/modular-type-along/blob/main/data/temperatures.csv) ([raw csv file](https://raw.githubusercontent.com/coderefinery/modular-type-along/main/data/temperatures.csv))
 contains hourly air temperature measurements for the observation station
 "Vantaa Helsinki-Vantaan lentoasema" (Helsinki airport) during 2022.
 
