@@ -35,6 +35,12 @@ document.
    solution
 
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Reference
+
+   Shell crash course <https://youtu.be/xbTTDLA3txI>
+
 
 .. toctree::
    :maxdepth: 1
