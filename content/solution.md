@@ -2,7 +2,6 @@
 
 # An iterative solution
 
-
 ## Before we start
 
 We **don't have to follow this line by line** but it's important to study
@@ -20,7 +19,6 @@ and learners can commend, suggest, and ask questions, and we are either all in
 the same video room or everybody is watching via stream. In other words, for
 this lesson, **learners are not in separate breakout-rooms**.
 
-
 ## Checklist
 
 - Start with notebook
@@ -33,7 +31,6 @@ this lesson, **learners are not in separate breakout-rooms**.
 - Add test
 - **Add command line interface**
 - Split into multiple files/modules
-
 
 ## Our initial version
 
@@ -51,7 +48,6 @@ recommendations and arrive at:
 `````
 
 - We test it out **in a notebook**.
-
 
 ## We add axis labels
 
@@ -73,7 +69,6 @@ Once we get this working for 25 measurements, our task changes to also
 plot the first 100 and the first 500 measurements in two additional
 plots.
 
-
 ## Plotting also 100 and 500 measurements
 
 - Next idea is perhaps code duplication.
@@ -84,12 +79,11 @@ plots.
 
 ```{literalinclude} code/add-iteration.py
 :language: python
-:emphasize-lines: 7
+:emphasize-lines: 7,20
 ```
 
 ````
 `````
-
 
 ## Abstracting the plotting part into a function
 
@@ -114,7 +108,6 @@ good for reusability but just the fact that we created a function does not mean
 that the function is reusable since in this case it depends on a variable
 defined outside the function and hence there are side-effects.
 
-
 ## Small improvements
 
 - Abstracting into more functions.
@@ -138,7 +131,6 @@ Emphasize how stateful functions and order of execution in Jupyter notebooks
 can produce unexpected results and explain why we motivate to rerun all cells
 before sharing the notebook.
 
-
 ## Towards functions without side-effects
 
 Improve to more stateless functions:
@@ -157,21 +149,20 @@ Improve to more stateless functions:
 These functions can now be copy-pasted to a different notebook or project and
 they will still work.
 
-
 ## Move from notebook to script
 
 Adding unit tests is often the moment when notebook is not the right fit
 anymore.
 
 But before we add tests:
+
 - "File" -> "Save and Export Notebook As ..." -> "Executable Script"
 - `git init` and commit the working version.
 - Add `requirements.txt` and motivate how that can be useful to have later.
 
 As we continue from here, **create commits after meaningful changes** and later
-also share the repository with learners.  This nicely connects to other lessons
+also share the repository with learners. This nicely connects to other lessons
 of the workshop.
-
 
 ## Unit tests
 
@@ -200,8 +191,8 @@ Design code for testing.
   [argparse](https://docs.python.org/3/library/argparse.html),
   [docopt](http://docopt.org/), or [Typer](https://typer.tiangolo.com/).
 - Discuss the motivations for adding a CLI:
-   - We are able to modify the behavior without changing the code
-   - We can run many of such scripts as part of a workflow
+  - We are able to modify the behavior without changing the code
+  - We can run many of such scripts as part of a workflow
 
 `````{tabs}
 ````{group-tab} Python
@@ -214,7 +205,6 @@ Design code for testing.
 ````
 `````
 
-
 ## Split long script into modules
 
 - Discuss how you would move some functions out and organize them into separate
@@ -222,7 +212,6 @@ Design code for testing.
   `compute_mean` can be moved to `statistics.py`.
 - Discuss naming.
 - Discuss interface design.
-
 
 ## Summarize in the collaborative document
 
