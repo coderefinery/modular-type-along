@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Modular code development'
-copyright = 'CodeRefinery project'
-author = 'CodeRefinery project'
+copyright = 'CodeRefinery contributors'
+author = 'CodeRefinery contributors'
 github_user = 'coderefinery'
 github_repo_name = 'modular-type-along'  # auto-detected from dirname if blank
 github_version = 'main'
