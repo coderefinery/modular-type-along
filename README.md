@@ -1,5 +1,7 @@
 # Modular code development - Making reusing parts of your code easier
 
+- [Modular code development lesson DOI](https://doi.org/10.5281/zenodo.16925149)
+
 Type-along/demo where we discuss and experience aspects of (un)modular
 code development.  It is an interactive demo with an intro, and then
 instructors start with the basic code in a Jupyter notebook and build
