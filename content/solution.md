@@ -49,37 +49,36 @@ recommendations and arrive at:
 
 - We test it out **in a notebook**.
 
-## We add axis labels
+## We add axis labels, titles and legends
 
-It's not the best placement but it works and later it will bite us (only the
-first plot will have labels) and we will improve it:
+This means we will add axis labels to both plots, which introduces more duplicated code and further motivates us to solve the duplication problem.
 
 `````{tabs}
 ````{group-tab} Python
 
 ```{literalinclude} code/with-axis-labels.py
 :language: python
-:emphasize-lines: 4,5
+<!-- :emphasize-lines: 4,5 -->
 ```
 
 ````
 `````
 
-Once we get this working for 25 measurements, our task changes to also
-plot the first 100 and the first 500 measurements in two additional
+Once we get this working for January, our task changes to also
+plot Febrary and March measurements in additional
 plots.
 
-## Plotting also 100 and 500 measurements
+## Plotting also Febrary and March measurements
 
-- Next idea is perhaps code duplication.
-- Then a for-loop to iterate over `[25, 100, 500]`:
+- 6 plots are toooo duplicated, we need to solve this now!
+- So a for-loop to iterate over months and columns:
 
 `````{tabs}
 ````{group-tab} Python
 
 ```{literalinclude} code/add-iteration.py
 :language: python
-:emphasize-lines: 7,20
+<!-- :emphasize-lines: 7,20 -->
 ```
 
 ````
@@ -92,7 +91,7 @@ plots.
 
 ```{literalinclude} code/abstracting-plot.py
 :language: python
-:emphasize-lines: 8-13,26-30
+<!-- :emphasize-lines: 8-13,26-30 -->
 ```
 
 ````
@@ -118,7 +117,7 @@ defined outside the function and hence there are side-effects.
 
 ```{literalinclude} code/small-improvements.py
 :language: python
-:emphasize-lines: 27-35
+<!-- :emphasize-lines: 27-35 -->
 ```
 
 ````
@@ -140,7 +139,7 @@ Improve to more stateless functions:
 
 ```{literalinclude} code/towards-pure.py
 :language: python
-:emphasize-lines: 6,15,20
+<!-- :emphasize-lines: 6,15,20 -->
 ```
 
 ````
@@ -176,7 +175,7 @@ Design code for testing.
 
 ```{literalinclude} code/testing.py
 :language: python
-:emphasize-lines: 3,11,21-23
+<!-- :emphasize-lines: 3,11,21-23 -->
 ```
 
 ````
@@ -199,7 +198,7 @@ Design code for testing.
 
 ```{literalinclude} code/cli.py
 :language: python
-:emphasize-lines: 4,31-37
+<!-- :emphasize-lines: 4,31-37 -->
 ```
 
 ````

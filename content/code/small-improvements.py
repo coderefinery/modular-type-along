@@ -2,34 +2,36 @@ import pandas as pd
 from matplotlib import pyplot as plt
 
 
-def plot_data(data, xlabel, ylabel):
-    plt.plot(data, "r-")
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.axhline(y=mean, color="b", linestyle="--")
+def plot_data(values):
+    plt.figure()
+    plt.xlabel("Measurement index")
+    plt.ylabel(column)
+    plt.plot(values, "r-", label=column)
+    plt.axhline(y=mean_value, color="b", linestyle="--", label=f"Mean {column}")
+    plt.title(f"Month {month} {column}")
+    plt.legend()
+    plt.savefig(f"month-{month}_{column}.png")
     plt.show()
-    plt.savefig(f"{num_measurements}.png")
-    plt.clf()
+    plt.close()
 
 
-def compute_statistics(data):
-    mean = sum(data) / num_measurements
+def compute_mean(data):
+    mean = sum(data) / len(data)
     return mean
 
 
-def read_data(file_name, column):
-    data = pd.read_csv(file_name, nrows=num_measurements)
+def read_data(file_name, column, month):
+    data = pd.read_csv(file_name)
+    data = data[data['month'] == month].reset_index(drop=True)  # Filter for month and reindex
     return data[column]
 
 
-for num_measurements in [25, 100, 500]:
+for month in [1, 2, 3]:
+    for column in ["air_temperature", "precipitation"]:
+        values = read_data(
+            file_name="weather_data.csv", column=column, month=month
+        )
+        mean_value = compute_mean(values)
+        plot_data(values)
 
-    temperatures = read_data(
-        file_name="temperatures.csv", column="Air temperature (degC)"
-    )
 
-    mean = compute_statistics(temperatures)
-
-    plot_data(
-        data=temperatures, xlabel="measurements", ylabel="air temperature (deg C)"
-    )

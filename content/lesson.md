@@ -3,13 +3,13 @@
 
 ## Data
 
-The file [temperatures.csv](https://github.com/coderefinery/modular-type-along/blob/main/data/temperatures.csv) ([raw csv file](https://raw.githubusercontent.com/coderefinery/modular-type-along/main/data/temperatures.csv))
+The file [weather_data.csv](https://github.com/coderefinery/modular-type-along/blob/main/data/weather_data.csv) ([raw csv file](https://raw.githubusercontent.com/coderefinery/modular-type-along/main/data/weather_data.csv))
 contains hourly air temperature measurements for the observation station
-"Vantaa Helsinki-Vantaan lentoasema" (Helsinki airport) during 2022.
+"Vantaa Helsinki-Vantaan lentoasema" (Helsinki airport) during 2024.
 
 ```{admonition} Origin of the data
 Data obtained from
-<https://en.ilmatieteenlaitos.fi/download-observations#!/> on 2023-09-27.
+<https://en.ilmatieteenlaitos.fi/download-observations#!/> on 2025-09-18.
 
 Data has been provided by the Finnish Meteorological Institute
 under the Creative Commons Attribution 4.0 International license (CC BY 4.0):
@@ -19,8 +19,8 @@ under the Creative Commons Attribution 4.0 International license (CC BY 4.0):
 
 ## Our initial goal
 
-Our initial goal for this exercise is to plot a series of temperatures
-for **25 measurements** and to compute and plot the **arithmetic mean**. We
+Our initial goal for this exercise is to plot a series of temperatures and precipitations
+for **January** and to compute and plot the **arithmetic mean**. We
 imagine that we assemble a working script from various StackOverflow/ChatGPT
 recommendations and arrive at:
 
@@ -36,11 +36,11 @@ elegant Python.
 
 ## Further goals
 
-- Once we get this working for **25 measurements**, our task changes to also
-  plot the **first 100** and the **first 500 measurements** in two additional
+- Once we get this working for **January**, our task changes to also
+  plot the **Febrary** and the **March** in two additional
   plots.
 - Then we wish to generalize the code so that a user can compute and plot this
-  for **any number**, **without changing the code** (with a command line interface).
+  for **any month**, **without changing the code** (with a command line interface).
 
 
 ## How we plan to solve it

@@ -1,21 +1,27 @@
 import pandas as pd
 from matplotlib import pyplot as plt
 
-plt.xlabel("measurements")
-plt.ylabel("air temperature (deg C)")
+# read data from file
+df = pd.read_csv("weather_data.csv")
 
-for num_measurements in [25, 100, 500]:
+for month in [1, 2, 3]:
+    for column in ["air_temperature", "precipitation"]:
+        data = df[df['month'] == month].reset_index(drop=True)  # Filter for month only and reindex
+        values = data[column]
+        num_measurements = len(values)
 
-    # read data from file
-    data = pd.read_csv("temperatures.csv", nrows=num_measurements)
-    temperatures = data["Air temperature (degC)"]
+        # compute statistics
+        mean_value = sum(values) / num_measurements
 
-    # compute statistics
-    mean = sum(temperatures) / num_measurements
-
-    # plot results
-    plt.plot(temperatures, "r-")
-    plt.axhline(y=mean, color="b", linestyle="--")
-    plt.show()
-    plt.savefig(f"{num_measurements}.png")
-    plt.clf()
+        # plot data
+        plt.figure()
+        plt.xlabel("Measurement index")
+        plt.ylabel(column)
+        plt.plot(values, color="r", linestyle="-", label=column)
+        plt.axhline(y=mean_value, color="r", 
+                    linestyle="--", label=f"Mean {column}")
+        plt.title(f"Month {month} {column}")
+        plt.legend()
+        plt.savefig(f"month-{month}_{column}.png")
+        plt.show()
+        plt.close()

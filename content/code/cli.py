@@ -3,53 +3,52 @@ from matplotlib import pyplot as plt
 import pytest
 import click
 
-
-def plot_data(data, mean, xlabel, ylabel, file_name):
-    plt.plot(data, "r-")
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.axhline(y=mean, color="b", linestyle="--")
-    plt.savefig(file_name)
-    plt.clf()
+def plot_data(values, mean_value, month, column):
+    plt.figure()
+    plt.xlabel("Measurement index")
+    plt.ylabel(column)
+    plt.plot(values, "r-", label=column)
+    plt.axhline(y=mean_value, color="b", linestyle="--", label=f"Mean {column}")
+    plt.title(f"Month {month} {column}")
+    plt.legend()
+    plt.savefig(f"month-{month}_{column}.png")
+    plt.show()
+    plt.close()
 
 
 def compute_mean(data):
     mean = sum(data) / len(data)
     return mean
 
-
 def test_compute_mean():
     result = compute_mean([1.0, 2.0, 3.0, 4.0])
     assert result == pytest.approx(2.5)
 
-
-def read_data(file_name, nrows, column):
-    data = pd.read_csv(file_name, nrows=nrows)
+def read_data(file_name, column, month):
+    data = pd.read_csv(file_name)
+    data = data[data['month'] == month].reset_index(drop=True)  # Filter for month and reindex
     return data[column]
-
 
 @click.command()
 @click.option(
-    "--num-measurements", required=True, type=int, help="Number of measurements."
+    "--month", required=True, type=int, help="Month."
 )
+@click.option("--column", required=True, help="Column name.")
 @click.option("--in-file", required=True, help="File name where we read from.")
-@click.option("--out-file", required=True, help="File name where we write to.")
-def main(num_measurements, in_file, out_file):
-
-    temperatures = read_data(
+def main(month, in_file, column):
+    values = read_data(
         file_name=in_file,
-        nrows=num_measurements,
-        column="Air temperature (degC)",
+        month=month,
+        column=column,
     )
 
-    mean = compute_mean(temperatures)
+    mean = compute_mean(values)
 
     plot_data(
-        data=temperatures,
-        mean=mean,
-        xlabel="measurements",
-        ylabel="air temperature (deg C)",
-        file_name=out_file,
+        values=values,
+        mean_value=mean,
+        month=month,
+        column=column,
     )
 
 

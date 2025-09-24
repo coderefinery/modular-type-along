@@ -1,18 +1,32 @@
 import pandas as pd
 from matplotlib import pyplot as plt
 
-num_measurements = 25
+month = 1
 
 # read data from file
-data = pd.read_csv("temperatures.csv", nrows=num_measurements)
-temperatures = data["Air temperature (degC)"]
+df = pd.read_csv("weather_data.csv")
+data = df[df['month'] == month].reset_index(drop=True)  # Filter for January only and reindex
+temperatures = data["air_temperature"]
+precipitations = data["precipitation"]
+num_measurements = len(precipitations)
 
 # compute statistics
-mean = sum(temperatures) / num_measurements
+temp_mean = sum(temperatures) / num_measurements
+precip_mean = sum(precipitations) / num_measurements
 
-# plot results
+# plot temperature
+plt.figure()
 plt.plot(temperatures, "r-")
-plt.axhline(y=mean, color="b", linestyle="--")
+plt.axhline(y=temp_mean, color="r", linestyle="--")
+plt.savefig(f"month-{month}_air_temperature.png")
 plt.show()
-plt.savefig("25.png")
-plt.clf()
+plt.close()
+
+# plot precipitation
+plt.figure()
+plt.plot(precipitations, "b-")
+plt.axhline(y=precip_mean, color="b", linestyle="--")
+plt.savefig(f"month-{month}_precipitation.png")
+plt.show()
+plt.close()
+
