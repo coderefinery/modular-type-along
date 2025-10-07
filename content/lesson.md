@@ -3,7 +3,8 @@
 
 ## Data
 
-The file [weather_data.csv](https://github.com/coderefinery/modular-type-along/blob/main/data/weather_data.csv) ([raw csv file](https://raw.githubusercontent.com/coderefinery/modular-type-along/main/data/weather_data.csv))
+The file [weather_data.csv](https://github.com/coderefinery/modular-type-along/blob/main/data/weather_data.csv)
+([raw csv file](https://raw.githubusercontent.com/coderefinery/modular-type-along/main/data/weather_data.csv))
 contains hourly air temperature measurements for the observation station
 "Vantaa Helsinki-Vantaan lentoasema" (Helsinki airport) during 2024.
 
@@ -21,7 +22,7 @@ under the Creative Commons Attribution 4.0 International license (CC BY 4.0):
 
 Our initial goal for this exercise is to plot a series of temperatures and precipitations
 for **January** and to compute and plot the **arithmetic mean**. We
-imagine that we assemble a working script from various StackOverflow/ChatGPT
+imagine that we assemble a working script from various internet research/ AI chat
 recommendations and arrive at:
 
 ```{literalinclude} code/initial-version.py
