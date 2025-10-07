@@ -7,12 +7,12 @@ month = 1
 df = pd.read_csv("weather_data.csv")
 data = df[df['month'] == month].reset_index(drop=True)  # Filter for January only and reindex
 temperatures = data["air_temperature"]
-precipitations = data["precipitation"]
-num_measurements = len(precipitations)
+precipitation = data["precipitation"]
+num_measurements = len(precipitation)
 
 # compute statistics
 temp_mean = sum(temperatures) / num_measurements
-precip_mean = sum(precipitations) / num_measurements
+precip_mean = sum(precipitation) / num_measurements
 
 # plot temperature
 plt.figure()
@@ -24,7 +24,7 @@ plt.close()
 
 # plot precipitation
 plt.figure()
-plt.plot(precipitations, "b-")
+plt.plot(precipitation, "b-")
 plt.axhline(y=precip_mean, color="b", linestyle="--")
 plt.savefig(f"month-{month}_precipitation.png")
 plt.show()
