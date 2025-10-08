@@ -1,35 +1,85 @@
 import pandas as pd
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 
 
-def plot_data(values, mean_value, month, column):
-    plt.figure()
-    plt.xlabel("Measurement index")
-    plt.ylabel(column)
-    plt.plot(values, "r-", label=column)
-    plt.axhline(y=mean_value, color="b", linestyle="--", label=f"Mean {column}")
-    plt.title(f"Month {month} {column}")
-    plt.legend()
-    plt.savefig(f"month-{month}_{column}.png")
-    plt.show()
-    plt.close()
-
-
-def compute_mean(data):
-    mean = sum(data) / len(data)
-    return mean
-
-
-def read_data(file_name, column, month):
+def read_data(file_name):
     data = pd.read_csv(file_name)
-    data = data[data['month'] == month].reset_index(drop=True)  # Filter for month and reindex
-    return data[column]
+
+    # combine 'date' and 'time' into a single datetime column
+    data["datetime"] = pd.to_datetime(data["date"] + " " + data["time"])
+
+    # set datetime as index for convenience
+    data = data.set_index("datetime")
+
+    return data
 
 
-for month in [1, 2, 3]:
-    for column in ["air_temperature", "precipitation"]:
-        values = read_data(
-            file_name="weather_data.csv", column=column, month=month
+def arithmetic_mean(values):
+    mean_value = sum(values) / len(values)
+    return mean_value
+
+
+def plot(date_range, values, label, location, color, compute_mean, file_name):
+    fig, ax = plt.subplots()
+
+    # time series
+    ax.plot(
+        date_range,
+        values,
+        label=label,
+        color=color,
+    )
+
+    if compute_mean:
+        mean_value = arithmetic_mean(values)
+
+        # mean (as horizontal dashed line)
+        ax.axhline(
+            y=mean_value,
+            label=f"mean {label}: {mean_value:.1f}",
+            color=color,
+            linestyle="--",
         )
-        mean_value = compute_mean(values)
-        plot_data(values, mean_value, month, column)
+
+    ax.set_title(f"{label} at {location}")
+    ax.set_xlabel("date and time")
+    ax.set_ylabel(label)
+    ax.legend()
+    ax.grid(True)
+
+    # format x-axis for better date display
+    fig.autofmt_xdate()
+
+    # plt.show()
+    plt.savefig(file_name)
+
+
+def main():
+    data = read_data("weather_data.csv")
+
+    for month in ["2024-01", "2024-02", "2024-03"]:
+        data_month = data.loc[month]
+        date_range = data_month.index
+
+        plot(
+            date_range,
+            data_month["air_temperature_celsius"].values,
+            "air temperature (C)",
+            "Helsinki airport",
+            "red",
+            compute_mean=True,
+            file_name=f"{month}-temperature.png",
+        )
+        plot(
+            date_range,
+            data_month["precipitation_mm"].values,
+            "precipitation (mm)",
+            "Helsinki airport",
+            "blue",
+            compute_mean=False,
+            file_name=f"{month}-precipitation.png",
+        )
+
+
+if __name__ == "__main__":
+    main()
