@@ -34,10 +34,6 @@ solution
 :caption: Reference
 
 Shell crash course <https://youtu.be/xbTTDLA3txI>
-:::
-
-
-:::{toctree}
 All lessons <https://coderefinery.org/lessons/core/>
 CodeRefinery <https://coderefinery.org/>
 Reusing <https://coderefinery.org/lessons/reusing/>
