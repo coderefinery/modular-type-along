@@ -16,6 +16,7 @@ Image to get started:
 questions
 learning-outcomes
 lesson
+optional-homework
 encapsulation
 :::
 
