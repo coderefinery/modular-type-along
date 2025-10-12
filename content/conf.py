@@ -40,6 +40,11 @@ extensions = [
     'sphinx_coderefinery_branding',
 ]
 
+# MyST extensions
+myst_enable_extensions = [
+    "colon_fence",  # ::: can be used instead of ``` for better rendering
+    ]
+
 nb_execution_mode = "cache"
 
 # Add any paths that contain templates here, relative to this directory.
