@@ -9,15 +9,6 @@ Image to get started:
 17(3): e1008549. https://doi.org/10.1371/journal.pcbi.1008549)
 
 
-## Slides
-
-We also have some slides:
-<https://github.com/coderefinery/modular-code-development>.  But here we will
-try to do this as collaborative type-along where instructors try to solve a
-problem together and where learners guide the instructors through a
-collaborative document.
-
-
 :::{toctree}
 :maxdepth: 1
 :caption: The lesson

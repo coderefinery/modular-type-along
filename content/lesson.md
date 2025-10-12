@@ -20,14 +20,23 @@ under the Creative Commons Attribution 4.0 International license (CC BY 4.0):
 
 ## Our initial goal
 
-Our initial goal for this exercise is to plot a series of temperatures and precipitations
-for **January** and to compute and plot the **arithmetic mean**. We
-imagine that we assemble a working script from various internet research/ AI chat
-recommendations and arrive at:
+Our initial goal for this exercise is to plot a series of temperatures and
+precipitations for **January** and to compute and plot the **mean temperture**
+averaged over the month. We imagine that we assemble a working script from
+various internet research/ AI chat recommendations and arrive at:
+:::::{tabs}
+  ::::{group-tab} Python
+    :::{literalinclude} code/initial-version.py
+    :language: python
+    :::
+  ::::
 
-```{literalinclude} code/initial-version.py
-:language: python
-```
+  ::::{group-tab} R
+    Work in progress. You can
+    [help us](https://github.com/coderefinery/modular-type-along/issues/40)
+    by contributing or improving an R solution.
+  ::::
+:::::
 
 This example is in Python but we will try to see "through" the code and
 focus on the bigger picture and hopefully manage to imagine other
@@ -38,10 +47,11 @@ elegant Python.
 ## Further goals
 
 - Once we get this working for **January**, our task changes to also
-  plot the **Febrary** and the **March** in two additional
+  plot the **February** and the **March** in two additional
   plots.
-- Then we wish to generalize the code so that a user can compute and plot this
-  for **any month**, **without changing the code** (with a command line interface).
+- Later, we wish to generalize the code so that a user can compute and plot
+  this for **any month**, **without changing the code** (with a command line
+  interface).
 
 
 ## How we plan to solve it

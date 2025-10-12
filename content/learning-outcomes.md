@@ -15,4 +15,4 @@
 - Understand how a command line interface to a code can improve usability and also
   make the code more versatile (to be combined with workflow management tools).
 - Connect modular code development to the remaining lessons (version control, testing,
-  documentation, reusability).
+  documentation, reproducibility).
