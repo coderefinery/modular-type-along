@@ -8,20 +8,20 @@ The file [weather_data.csv](https://github.com/coderefinery/modular-type-along/b
 contains hourly air temperature measurements for the observation station
 "Vantaa Helsinki-Vantaan lentoasema" (Helsinki airport) during 2024.
 
-```{admonition} Origin of the data
+:::{admonition} Origin of the data
 Data obtained from
 <https://en.ilmatieteenlaitos.fi/download-observations#!/> on 2025-09-18.
 
 Data has been provided by the Finnish Meteorological Institute
 under the Creative Commons Attribution 4.0 International license (CC BY 4.0):
 <https://en.ilmatieteenlaitos.fi/open-data-licence>
-```
+:::
 
 
 ## Our initial goal
 
 Our initial goal for this exercise is to plot a series of temperatures and
-precipitations for **January** and to compute and plot the **mean temperture**
+precipitations for **January** and to compute and plot the **mean temperature**
 averaged over the month. We imagine that we assemble a working script from
 various internet research/ AI chat recommendations and arrive at:
 :::::{tabs}
@@ -62,14 +62,14 @@ they would tackle this problem.
 Together we improve the code based on suggestions from learners towards
 more modularity and re-usability.
 
-```{instructor-note}
+:::{instructor-note}
 Participants give suggestions and ask questions via collaborative document
 and instructor(s) try to follow and answer. They can also roughly follow
 the ideas and steps in the {ref}`guide`.
 
 It is OK and good if mistakes happen and it is fun if the instructor(s) can
 convey a bit of "improv" feel to this lesson.
-```
+:::
 
 
 ## Additional exercises
