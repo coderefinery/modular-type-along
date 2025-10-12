@@ -44,8 +44,8 @@ ax.grid(True)
 # format x-axis for better date display
 fig.autofmt_xdate()
 
-plt.show()
-plt.savefig("2024-01-temperature.png")
+fig.show()
+fig.savefig("2024-01-temperature.png")
 
 fig, ax = plt.subplots()
 
@@ -66,5 +66,5 @@ ax.grid(True)
 # format x-axis for better date display
 fig.autofmt_xdate()
 
-plt.show()
-plt.savefig("2024-01-precipitation.png")
+fig.show()
+fig.savefig("2024-01-precipitation.png")

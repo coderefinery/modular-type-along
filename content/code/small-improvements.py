@@ -50,8 +50,8 @@ def plot(column, label, location, color, compute_mean):
     # format x-axis for better date display
     fig.autofmt_xdate()
 
-    plt.show()
-    plt.savefig(f"{month}-{column}.png")
+    fig.show()
+    fig.savefig(f"{month}-{column}.png")
 
 
 data = read_data("weather_data.csv")

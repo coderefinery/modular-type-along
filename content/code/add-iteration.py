@@ -45,8 +45,8 @@ for month in ["2024-01", "2024-02", "2024-03"]:
     # format x-axis for better date display
     fig.autofmt_xdate()
 
-    plt.show()
-    plt.savefig(f"{month}-temperature.png")
+    fig.show()
+    fig.savefig(f"{month}-temperature.png")
 
     fig, ax = plt.subplots()
 
@@ -67,5 +67,5 @@ for month in ["2024-01", "2024-02", "2024-03"]:
     # format x-axis for better date display
     fig.autofmt_xdate()
 
-    plt.show()
-    plt.savefig(f"{month}-precipitation.png")
+    fig.show()
+    fig.savefig(f"{month}-precipitation.png")
