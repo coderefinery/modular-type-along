@@ -1,35 +1,74 @@
 import pandas as pd
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 
 
-def plot_data(data, xlabel, ylabel):
-    plt.plot(data, "r-")
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.axhline(y=mean, color="b", linestyle="--")
-    plt.show()
-    plt.savefig(f"{num_measurements}.png")
-    plt.clf()
+def read_data(file_name):
+    data = pd.read_csv(file_name)
+
+    # combine 'date' and 'time' into a single datetime column
+    data["datetime"] = pd.to_datetime(data["date"] + " " + data["time"])
+
+    # set datetime as index for convenience
+    data = data.set_index("datetime")
+
+    return data
 
 
-def compute_statistics(data):
-    mean = sum(data) / num_measurements
-    return mean
+def arithmetic_mean(values):
+    mean_value = sum(values) / len(values)
+    return mean_value
 
 
-def read_data(file_name, column):
-    data = pd.read_csv(file_name, nrows=num_measurements)
-    return data[column]
+def plot(column, label, location, color, compute_mean):
+    fig, ax = plt.subplots()
 
-
-for num_measurements in [25, 100, 500]:
-
-    temperatures = read_data(
-        file_name="temperatures.csv", column="Air temperature (degC)"
+    # time series
+    ax.plot(
+        data_month.index,
+        data_month[column],
+        label=label,
+        color=color,
     )
 
-    mean = compute_statistics(temperatures)
+    if compute_mean:
+        mean_value = arithmetic_mean(data_month[column].values)
 
-    plot_data(
-        data=temperatures, xlabel="measurements", ylabel="air temperature (deg C)"
+        # mean (as horizontal dashed line)
+        ax.axhline(
+            y=mean_value,
+            label=f"mean {label}: {mean_value:.1f}",
+            color=color,
+            linestyle="--",
+        )
+
+    ax.set_title(f"{label} at {location}")
+    ax.set_xlabel("date and time")
+    ax.set_ylabel(label)
+    ax.legend()
+    ax.grid(True)
+
+    # format x-axis for better date display
+    fig.autofmt_xdate()
+
+    fig.savefig(f"{month}-{column}.png")
+
+
+data = read_data("weather_data.csv")
+
+for month in ["2024-01", "2024-02", "2024-03"]:
+    data_month = data.loc[month]
+
+    plot(
+        "air_temperature_celsius",
+        "air temperature (C)",
+        "Helsinki airport",
+        "red",
+        compute_mean=True,
+    )
+    plot(
+        "precipitation_mm",
+        "precipitation (mm)",
+        "Helsinki airport",
+        "blue",
+        compute_mean=False,
     )

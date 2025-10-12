@@ -1,31 +1,66 @@
 import pandas as pd
-from matplotlib import pyplot as plt
-
-plt.xlabel("measurements")
-plt.ylabel("air temperature (deg C)")
+import matplotlib.pyplot as plt
 
 
-def plot_temperatures(temperatures):
-    plt.plot(temperatures, "r-")
-    plt.axhline(y=mean, color="b", linestyle="--")
-    plt.show()
-    plt.savefig(f"{num_measurements}.png")
-    plt.clf()
+def plot(column, label, location, color, compute_mean):
+    fig, ax = plt.subplots()
+
+    # time series
+    ax.plot(
+        data_month.index,
+        data_month[column],
+        label=label,
+        color=color,
+    )
+
+    if compute_mean:
+        values = data_month[column].values
+        mean_value = sum(values) / len(values)
+
+        # mean (as horizontal dashed line)
+        ax.axhline(
+            y=mean_value,
+            label=f"mean {label}: {mean_value:.1f}",
+            color=color,
+            linestyle="--",
+        )
+
+    ax.set_title(f"{label} at {location}")
+    ax.set_xlabel("date and time")
+    ax.set_ylabel(label)
+    ax.legend()
+    ax.grid(True)
+
+    # format x-axis for better date display
+    fig.autofmt_xdate()
+
+    fig.savefig(f"{month}-{column}.png")
 
 
-for num_measurements in [25, 100, 500]:
+# read data
+data = pd.read_csv("weather_data.csv")
 
-    # read data from file
-    data = pd.read_csv("temperatures.csv", nrows=num_measurements)
-    temperatures = data["Air temperature (degC)"]
+# combine 'date' and 'time' into a single datetime column
+data["datetime"] = pd.to_datetime(data["date"] + " " + data["time"])
 
-    # compute statistics
-    mean = sum(temperatures) / num_measurements
+# set datetime as index for convenience
+data = data.set_index("datetime")
 
-    # plot results
-    #   plt.plot(temperatures, 'r-')
-    #   plt.axhline(y=mean, color='b', linestyle='--')
-    #   plt.show()
-    #   plt.savefig(f'{num_measurements}.png')
-    #   plt.clf()
-    plot_temperatures(temperatures)
+
+for month in ["2024-01", "2024-02", "2024-03"]:
+    data_month = data.loc[month]
+
+    plot(
+        "air_temperature_celsius",
+        "air temperature (C)",
+        "Helsinki airport",
+        "red",
+        compute_mean=True,
+    )
+    plot(
+        "precipitation_mm",
+        "precipitation (mm)",
+        "Helsinki airport",
+        "blue",
+        compute_mean=False,
+    )

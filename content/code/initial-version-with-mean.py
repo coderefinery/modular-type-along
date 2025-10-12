@@ -24,6 +24,17 @@ ax.plot(
     color="red",
 )
 
+values = january["air_temperature_celsius"].values
+mean_temp = sum(values) / len(values)
+
+# mean temperature (as horizontal dashed line)
+ax.axhline(
+    y=mean_temp,
+    label=f"mean air temperature (C): {mean_temp:.1f}",
+    color="red",
+    linestyle="--",
+)
+
 ax.set_title("air temperature (C) at Helsinki airport")
 ax.set_xlabel("date and time")
 ax.set_ylabel("air temperature (C)")

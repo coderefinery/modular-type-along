@@ -19,6 +19,7 @@ and learners can commend, suggest, and ask questions, and we are either all in
 the same video room or everybody is watching via stream. In other words, for
 this lesson, **learners are not in separate breakout-rooms**.
 
+
 ## Checklist
 
 - Start with notebook
@@ -32,97 +33,147 @@ this lesson, **learners are not in separate breakout-rooms**.
 - **Add command line interface**
 - Split into multiple files/modules
 
+
 ## Our initial version
 
-We imagine that we assemble a working script from various StackOverflow
+We imagine that we assemble a working script/code
+from various internet research/ AI chat
 recommendations and arrive at:
 
-`````{tabs}
-````{group-tab} Python
+:::::{tabs}
+  ::::{group-tab} Python
+    :::{literalinclude} code/initial-version.py
+    :language: python
+    :::
+  ::::
 
-```{literalinclude} code/initial-version.py
-:language: python
-```
-
-````
-`````
+  ::::{group-tab} R
+    Work in progress. You can
+    [help us](https://github.com/coderefinery/modular-type-along/issues/40)
+    by contributing or improving an R solution.
+  ::::
+:::::
 
 - We test it out **in a notebook**.
 
-## We add axis labels
 
-It's not the best placement but it works and later it will bite us (only the
-first plot will have labels) and we will improve it:
+## We add a dashed line representing the mean temperature
 
-`````{tabs}
-````{group-tab} Python
+This is still only the January data.
 
-```{literalinclude} code/with-axis-labels.py
-:language: python
-:emphasize-lines: 4,5
-```
+:::::{tabs}
+  ::::{group-tab} Python
+    :::{literalinclude} code/initial-version-with-mean.py
+    :language: python
+    :emphasize-lines: 27-36
+    :linenos:
+    :::
+  ::::
 
-````
-`````
+  ::::{group-tab} R
+    Work in progress. You can
+    [help us](https://github.com/coderefinery/modular-type-along/issues/40)
+    by contributing or improving an R solution.
+  ::::
+:::::
 
-Once we get this working for 25 measurements, our task changes to also
-plot the first 100 and the first 500 measurements in two additional
-plots.
 
-## Plotting also 100 and 500 measurements
+## We add another plot for the precipitation
 
-- Next idea is perhaps code duplication.
-- Then a for-loop to iterate over `[25, 100, 500]`:
+As a first go, we achieve this by copy pasting the existing code and adjusting
+it for the precipitation column.
 
-`````{tabs}
-````{group-tab} Python
+:::::{tabs}
+  ::::{group-tab} Python
+    :::{literalinclude} code/initial-version-with-precipitation.py
+    :language: python
+    :emphasize-lines: 49-68
+    :linenos:
+    :::
+  ::::
 
-```{literalinclude} code/add-iteration.py
-:language: python
-:emphasize-lines: 7,20
-```
+  ::::{group-tab} R
+    Work in progress. You can
+    [help us](https://github.com/coderefinery/modular-type-along/issues/40)
+    by contributing or improving an R solution.
+  ::::
+:::::
 
-````
-`````
+
+## Plotting also February and March data
+
+- Copy-pasting very similar code 6 times would be too complicated to maintain.
+- We avoid this by iterating over the first 3 months.
+- Instead of reusing `data`, we introduce `data_month`.
+
+:::::{tabs}
+  ::::{group-tab} Python
+    :::{literalinclude} code/add-iteration.py
+    :language: python
+    :emphasize-lines: 15-16,22-23,28,54-55
+    :linenos:
+    :::
+  ::::
+
+  ::::{group-tab} R
+    Work in progress. You can
+    [help us](https://github.com/coderefinery/modular-type-along/issues/40)
+    by contributing or improving an R solution.
+  ::::
+:::::
+
 
 ## Abstracting the plotting part into a function
 
-`````{tabs}
-````{group-tab} Python
+:::::{tabs}
+  ::::{group-tab} Python
+    :::{literalinclude} code/abstracting-plot.py
+    :language: python
+    :emphasize-lines: 5,53-66
+    :linenos:
+    :::
+  ::::
 
-```{literalinclude} code/abstracting-plot.py
-:language: python
-:emphasize-lines: 8-13,26-30
-```
+  ::::{group-tab} R
+    Work in progress. You can
+    [help us](https://github.com/coderefinery/modular-type-along/issues/40)
+    by contributing or improving an R solution.
+  ::::
+:::::
 
-````
-`````
-
-- Discuss what we expect before running it (some will expect this not to work
-  because variables seem undefined).
+- Discuss the advantages of what we have done here.
+- Discuss what we expect before running it (we might expect this not to work
+  because `data_month` seems undefined inside the function).
 - Then try it out (it actually works).
-- Discuss problems with this solution (what if we copy-paste the function to a different file?).
+- Discuss problems with this solution (what if we copy-paste the function to a
+  different file?).
 
 The point of this step was that abstracting code into functions can be really
-good for reusability but just the fact that we created a function does not mean
-that the function is reusable since in this case it depends on a variable
-defined outside the function and hence there are side-effects.
+good for re-usability but just the fact that we created a function does not
+mean that the function is reusable since in this case it depends on a variable
+defined outside the function and hence there are **side-effects**.
+
 
 ## Small improvements
 
 - Abstracting into more functions.
-- Notice how the comments got redundant:
+- Notice how some code comments got redundant:
 
-`````{tabs}
-````{group-tab} Python
+:::::{tabs}
+  ::::{group-tab} Python
+    :::{literalinclude} code/small-improvements.py
+    :language: python
+    :emphasize-lines: 5-14,17-19,34,56
+    :linenos:
+    :::
+  ::::
 
-```{literalinclude} code/small-improvements.py
-:language: python
-:emphasize-lines: 27-35
-```
-
-````
-`````
+  ::::{group-tab} R
+    Work in progress. You can
+    [help us](https://github.com/coderefinery/modular-type-along/issues/40)
+    by contributing or improving an R solution.
+  ::::
+:::::
 
 Discuss what would happen if we copy-paste the functions to another project
 (these functions are stateful/time-dependent).
@@ -131,30 +182,8 @@ Emphasize how stateful functions and order of execution in Jupyter notebooks
 can produce unexpected results and explain why we motivate to rerun all cells
 before sharing the notebook.
 
-## Towards functions without side-effects
-
-Improve to more stateless functions:
-
-`````{tabs}
-````{group-tab} Python
-
-```{literalinclude} code/towards-pure.py
-:language: python
-:emphasize-lines: 6,15,20
-```
-
-````
-`````
-
-These functions can now be copy-pasted to a different notebook or project and
-they will still work.
 
 ## Move from notebook to script
-
-Adding unit tests is often the moment when notebook is not the right fit
-anymore.
-
-But before we add tests:
 
 - "File" -> "Save and Export Notebook As ..." -> "Executable Script"
 - `git init` and commit the working version.
@@ -164,59 +193,105 @@ As we continue from here, **create commits after meaningful changes** and later
 also share the repository with learners. This nicely connects to other lessons
 of the workshop.
 
+
+## Towards functions without side-effects
+
+In Python we can detect problems by encapsulating all code into functions and
+when using a code editor with a static checker (instructor can demonstrate
+this by first introducing a main function, then detecting problems, then
+fixing the problems).
+
+We then improve towards:
+
+:::::{tabs}
+  ::::{group-tab} Python
+    :::{literalinclude} code/towards-pure.py
+    :language: python
+    :emphasize-lines: 22,27-28,34,53,56,61,83-84
+    :linenos:
+    :::
+  ::::
+
+  ::::{group-tab} R
+    Work in progress. You can
+    [help us](https://github.com/coderefinery/modular-type-along/issues/40)
+    by contributing or improving an R solution.
+  ::::
+:::::
+
+These functions can now be copy-pasted to a different notebook or project and
+they will still work.
+
+
 ## Unit tests
 
-Design code for testing.
+- Discuss what one could mean with "design code for testing".
+- Discuss when to test and when not to test.
+- Discuss where to add a test and add a test to the `arithmetic_mean` function:
 
-- Move the main scope code into a main function.
-- Discuss where to add a test and add a test to the statistics function:
+:::::{tabs}
+  ::::{group-tab} Python
+    :::{literalinclude} code/testing.py
+    :language: python
+    :emphasize-lines: 3,23-25
+    :linenos:
+    :::
+  ::::
 
-`````{tabs}
-````{group-tab} Python
+  ::::{group-tab} R
+    Work in progress. You can
+    [help us](https://github.com/coderefinery/modular-type-along/issues/40)
+    by contributing or improving an R solution.
+  ::::
+:::::
 
-```{literalinclude} code/testing.py
-:language: python
-:emphasize-lines: 3,11,21-23
-```
 
-````
-`````
+## Command-line interface (CLI)
 
-## Command-line interface
-
-- Add a CLI for the input data file, the number of measurements, and the output
-  file name.
+- Add a CLI for the input data file, the month, and the output folder.
+- Instructor demonstrates it, for instance:
+  ```console
+  $ python example.py --month 2024-05 --data-file weather_data.csv --output-directory /home/user/example/results
+  ```
 - Example here is using [click](https://click.palletsprojects.com/) but it can
   equally well be [optparse](https://docs.python.org/3/library/optparse.html),
   [argparse](https://docs.python.org/3/library/argparse.html),
   [docopt](http://docopt.org/), or [Typer](https://typer.tiangolo.com/).
 - Discuss the motivations for adding a CLI:
-  - We are able to modify the behavior without changing the code
+  - We are able to modify the behavior without changing (or needing to
+    understand) the code
   - We can run many of such scripts as part of a workflow
 
-`````{tabs}
-````{group-tab} Python
+:::::{tabs}
+  ::::{group-tab} Python
+    :::{literalinclude} code/cli.py
+    :language: python
+    :emphasize-lines: 1,7,66-84
+    :linenos:
+    :::
+  ::::
 
-```{literalinclude} code/cli.py
-:language: python
-:emphasize-lines: 4,31-37
-```
+  ::::{group-tab} R
+    Work in progress. You can
+    [help us](https://github.com/coderefinery/modular-type-along/issues/40)
+    by contributing or improving an R solution.
+  ::::
+:::::
 
-````
-`````
 
 ## Split long script into modules
 
 - Discuss how you would move some functions out and organize them into separate
-  modules which can be imported to other projects: For instance
-  `compute_mean` can be moved to `statistics.py`.
+  modules which can be imported to other projects.
 - Discuss naming.
 - Discuss interface design.
 
+
 ## Summarize in the collaborative document
 
-- Now return to initial questions on the collaborative document and discuss questions and comments. If
-  there is time left, there are additional questions and exercises.
+- Now return to initial questions on the collaborative document and discuss
+  questions and comments. If there is time left, there are additional
+  questions and exercises.
 - It is easier and more fun to teach this as a pair with somebody else where
   one person can type and the other person helps watching the questions and
   commends and relays them to the co-instructor.
