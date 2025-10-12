@@ -60,7 +60,6 @@ def plot(date_range, values, label, location, color, compute_mean, file_name):
     # format x-axis for better date display
     fig.autofmt_xdate()
 
-    # fig.show()
     fig.savefig(file_name)
 
 

@@ -34,7 +34,6 @@ def plot(column, label, location, color, compute_mean):
     # format x-axis for better date display
     fig.autofmt_xdate()
 
-    fig.show()
     fig.savefig(f"{month}-{column}.png")
 
 

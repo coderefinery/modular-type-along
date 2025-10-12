@@ -66,6 +66,7 @@ This is still only the January data.
     :::{literalinclude} code/initial-version-with-mean.py
     :language: python
     :emphasize-lines: 27-36
+    :linenos:
     :::
   ::::
 
@@ -86,7 +87,8 @@ it for the precipitation column.
   ::::{group-tab} Python
     :::{literalinclude} code/initial-version-with-precipitation.py
     :language: python
-    :emphasize-lines: 50-70
+    :emphasize-lines: 49-68
+    :linenos:
     :::
   ::::
 
@@ -108,7 +110,8 @@ it for the precipitation column.
   ::::{group-tab} Python
     :::{literalinclude} code/add-iteration.py
     :language: python
-    :emphasize-lines: 15-16,22-23,28,55-56
+    :emphasize-lines: 15-16,22-23,28,54-55
+    :linenos:
     :::
   ::::
 
@@ -126,7 +129,8 @@ it for the precipitation column.
   ::::{group-tab} Python
     :::{literalinclude} code/abstracting-plot.py
     :language: python
-    :emphasize-lines: 5,54-67
+    :emphasize-lines: 5,53-66
+    :linenos:
     :::
   ::::
 
@@ -159,7 +163,8 @@ defined outside the function and hence there are **side-effects**.
   ::::{group-tab} Python
     :::{literalinclude} code/small-improvements.py
     :language: python
-    :emphasize-lines: 5-14,17-19,34,57
+    :emphasize-lines: 5-14,17-19,34,56
+    :linenos:
     :::
   ::::
 
@@ -183,7 +188,6 @@ before sharing the notebook.
 - "File" -> "Save and Export Notebook As ..." -> "Executable Script"
 - `git init` and commit the working version.
 - Add `requirements.txt` and motivate how that can be useful to have later.
-- In Python perhaps comment out the `fig.show()`?
 
 As we continue from here, **create commits after meaningful changes** and later
 also share the repository with learners. This nicely connects to other lessons
@@ -203,7 +207,8 @@ We then improve towards:
   ::::{group-tab} Python
     :::{literalinclude} code/towards-pure.py
     :language: python
-    :emphasize-lines: 22,27-28,34,53-54,57,62,84-85
+    :emphasize-lines: 22,27-28,34,53,56,61,83-84
+    :linenos:
     :::
   ::::
 
@@ -229,6 +234,7 @@ they will still work.
     :::{literalinclude} code/testing.py
     :language: python
     :emphasize-lines: 3,23-25
+    :linenos:
     :::
   ::::
 
@@ -260,7 +266,8 @@ they will still work.
   ::::{group-tab} Python
     :::{literalinclude} code/cli.py
     :language: python
-    :emphasize-lines: 1,7,67-85
+    :emphasize-lines: 1,7,66-84
+    :linenos:
     :::
   ::::
 

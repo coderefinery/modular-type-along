@@ -44,5 +44,4 @@ ax.grid(True)
 # format x-axis for better date display
 fig.autofmt_xdate()
 
-fig.show()
 fig.savefig("2024-01-temperature.png")
