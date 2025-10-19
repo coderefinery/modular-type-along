@@ -1,6 +1,4 @@
-(guide)=
-
-# An iterative solution
+# One possible solution
 
 ## Before we start
 
@@ -14,10 +12,7 @@ other languages in its place.
 We **collect ideas and feedback in the collaborative document while coding** and the instructor
 tries to react to that without going into the rabbit hole.
 
-We recommend to go through this together where the instructor(s) demonstrate(s)
-and learners can commend, suggest, and ask questions, and we are either all in
-the same video room or everybody is watching via stream. In other words, for
-this lesson, **learners are not in separate breakout-rooms**.
+Learners can also explore some of these steps in one of the exercise sessions.
 
 
 ## Checklist

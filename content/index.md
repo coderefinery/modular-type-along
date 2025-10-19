@@ -9,15 +9,30 @@ Image to get started:
 17(3): e1008549. <https://doi.org/10.1371/journal.pcbi.1008549>)
 
 
+## Timing overview
+
+:::{csv-table}
+:widths: auto
+:delim: ;
+
+20 min ; {doc}`starting-point`
+20 min ; {doc}`exercise1`
+10 min ; Discussion
+10 min ; Break
+30 min ; Live-coding with suggestions via notes ({doc}`solution`)
+20 min ; {doc}`exercise2`
+10 min ; Break
+15 min ; Discussion
+:::
+
+
 :::{toctree}
 :maxdepth: 1
-:caption: The lesson
+:caption: Episodes
 
-questions
-learning-outcomes
-lesson
-optional-homework
-encapsulation
+starting-point
+exercise1
+exercise2
 :::
 
 

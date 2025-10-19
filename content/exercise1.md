@@ -1,15 +1,33 @@
-# Optional home-/group work
+# Exercise 1
 
-:::{admonition} This is completely optional
-You can participate in the lesson without working on any of the tasks below.
 
-We share these for individuals and groups who would like to work on some of
-these in preparation of the lesson or independently of a CodeRefinery workshop
-with their study group.
-
-We might comment on the contributed solutions during the lesson
-but we will definitely do so in a constructive and positive way.
+:::{admonition} You can participate in two ways
+- Either by discussing with others and writing your own thoughts via collaborative notes
+- Or by coding
+- Or a mix of the two that is most meaningful for you or your group
 :::
+
+
+## Discussion track
+
+We share these questions in a common collaborative document:
+```
+A. What does "modular code development" mean for you?
+B. What best practices can you recommend to arrive at well structured,
+   modular code in your favourite programming language?
+C. What do you know now about programming that you wish somebody told you earlier?
+D. Do you design a new code project on paper before coding? Discuss pros
+   and cons.
+E. Do you build your code top-down (starting from the big picture) or bottom-up
+   (starting from components)? Discuss pros and cons.
+F. Would you prefer your code to be 2x slower if it was easier to read and understand?
+```
+
+They can be answered by individual learners but also discussed within an
+exercise group.
+
+
+## Coding track
 
 You can practice on our [exercise repository](https://github.com/coderefinery/modular-type-along-exercise) which contains:
 - Data set
