@@ -192,7 +192,14 @@ of the workshop.
 In Python we can detect problems by encapsulating all code into functions and
 when using a code editor with a static checker (instructor can demonstrate
 this by first introducing a main function, then detecting problems, then
-fixing the problems).
+fixing the problems):
+:::{figure} undefined.png
+
+After we have tucked the "main" code under a main function, an editor with
+linter/checker enabled highlights undefined names and variables which are
+assigned but never used.  The screenshot was obtained from a vim editor with
+[ruff](https://docs.astral.sh/ruff/) language server enabled.
+:::
 
 We then improve towards:
 
