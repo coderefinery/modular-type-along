@@ -6,7 +6,7 @@ code development. **We will focus on the "why", not on the "how"**.
 Image to get started:
 [The curse of bad code design](https://doi.org/10.1371/journal.pcbi.1008549.g005)
 (Ten simple rules for quick and dirty scientific programming. PLoS Comput Biol
-17(3): e1008549. https://doi.org/10.1371/journal.pcbi.1008549)
+17(3): e1008549. <https://doi.org/10.1371/journal.pcbi.1008549>)
 
 
 :::{toctree}
