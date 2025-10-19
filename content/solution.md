@@ -18,14 +18,17 @@ Learners can also explore some of these steps in one of the exercise sessions.
 ## Checklist
 
 - Start with notebook
-- Generalize from 1 figure to 3 figures
+- Add statistics (mean temperature)
+- Add precipitation
+- Generalize from January to also February and March data
 - Abstract code into functions
-- From functions with side-effects towards stateless functions
 - Move from notebook to script
+- From functions with side-effects towards stateless functions
 - Initialize git
 - Add `requirements.txt`
 - Add test
-- **Add command line interface**
+- Add command line interface
+- Show how a workflow solution could look
 - Split into multiple files/modules
 
 
