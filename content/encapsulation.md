@@ -1,18 +1,4 @@
-# Exercise 2
-
-
-:::{admonition} You can participate in two ways
-- Either by discussing with others and writing your own thoughts via collaborative notes
-- Or by coding
-- Or a mix of the two that is most meaningful for you or your group
-:::
-
-
-## Discussion track
-
-The topic of this discussion session is encapsulation.
-Can you please comment on these recommendations in the collaborative notes and perhaps suggest
-other recommendations which have helped in your work and others could find useful?
+# Encapsulation
 
 
 :::{discussion} Types of encapsulation
@@ -38,11 +24,3 @@ Let's say you want to move a code from one system to another.  What are the thin
 - Global data are often input parameters, configuration parameters, command-line arguments.
 - But try to localize these to the "main" code/function.
 :::
-
-
-
-## Coding track
-
-Here you can continue either with some of the coding tasks from the first
-exercise session or you can program something inspired by our live-coding
-session.

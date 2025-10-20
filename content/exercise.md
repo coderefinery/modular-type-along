@@ -1,4 +1,4 @@
-# Exercise 1
+# Exercise
 
 
 :::{admonition} You can participate in two ways

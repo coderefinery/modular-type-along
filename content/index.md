@@ -16,11 +16,10 @@ Image to get started:
 :delim: ;
 
 20 min ; {doc}`starting-point`
-20 min ; {doc}`exercise1`
+20 min ; {doc}`exercise`
 10 min ; Discussion
 10 min ; Break
-30 min ; Live-coding with suggestions via notes ({doc}`solution`)
-20 min ; {doc}`exercise2`
+50 min ; Live-coding with suggestions via notes ({doc}`solution`)
 10 min ; Break
 15 min ; Discussion
 :::
@@ -31,8 +30,15 @@ Image to get started:
 :caption: Episodes
 
 starting-point
-exercise1
-exercise2
+exercise
+:::
+
+
+:::{toctree}
+:maxdepth: 1
+:caption: Optional
+
+encapsulation
 :::
 
 
