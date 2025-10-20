@@ -33,7 +33,7 @@ You can practice on our [exercise repository](https://github.com/coderefinery/mo
 - Data set
 - Python notebook which works but is not super general
 
-To run the notebook, you'll need the same conda environment used throughout this workshop. You can activate it and launch Jupyter Lab with these commands:
+To run the notebook, you'll need [the same conda environment](https://coderefinery.github.io/installation/conda/) used throughout this workshop. You can activate it and launch Jupyter Lab with these commands:
 
 ```bash
    conda activate coderefinery
