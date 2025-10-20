@@ -48,14 +48,15 @@ Exercise ideas (sorted from basic to advanced):
 - Add example usage to the README
 - Add a result image to the README
 - Make it installable and document installation (requirements.txt or environment.yml, pip/conda/...)
-- Add a command line interface
-- Improve error messages (e.g. input file does not exist or does not contain data we want to plot)
+- Improve error messages (e.g., input file does not exist or does not contain data we want to plot)
 - Draw a call tree for one of your recent projects. Identify the
   functions in your call tree which are "pure" (which have no side-effects).
-- Add more automated tests
-- Try some of the strategies in this lesson on your own data
+- Try out with your own data
 - Contribute a notebook/script with weather data from your place **in your
   favorite programming language**
-- If you use AI, any tricks you can share to get modular code from it?
 - Make the notebook (more) reproducible
+- Add automated tests
+- Add a command line interface
+- If you use AI, any tricks you can share to get modular code from it?
+- How would you restructure the code to make it more maintainable and collaborative?
 - Add support for Snakemake or any other workflow management tool
