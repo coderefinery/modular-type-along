@@ -33,6 +33,13 @@ You can practice on our [exercise repository](https://github.com/coderefinery/mo
 - Data set
 - Python notebook which works but is not super general
 
+To run the notebook, you'll need the same conda environment used throughout this workshop. You can activate it and launch Jupyter Lab with these commands:
+
+```bash
+   conda activate coderefinery
+   jupyter lab
+```
+
 How to contribute improvements:
 - Open issue at the [exercise repository](https://github.com/coderefinery/modular-type-along-exercise) and in your pull request refer to that issue.
 
