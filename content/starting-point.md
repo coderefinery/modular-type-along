@@ -3,8 +3,8 @@
 
 ## Data
 
-The file [weather_data.csv](https://github.com/coderefinery/modular-type-along/blob/main/data/weather_data.csv)
-([raw csv file](https://raw.githubusercontent.com/coderefinery/modular-type-along/main/data/weather_data.csv))
+The file [weather_data.csv](https://github.com/coderefinery/modular-type-along-exercise/blob/main/weather_data.csv)
+([raw csv file](https://raw.githubusercontent.com/coderefinery/modular-type-along-exercise/refs/heads/main/weather_data.csv))
 contains hourly weather measurements from the observation station
 "Vantaa Helsinki-Vantaan lentoasema" (Helsinki airport) during 2024.
 
