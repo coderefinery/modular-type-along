@@ -1,5 +1,6 @@
 # Encapsulation
-
+Encapsulation in software development refers to isolating a piece of software and its dependencies from the external environment so that it can function, be reused, or moved independently.
+It can happen at different levels — within code (e.g., functions, classes, or modules), within environments (e.g., virtual environments, containers), or even at the system level (e.g., portable workflows and data management).
 
 :::{discussion} Types of encapsulation
 Let's say you want to move a code from one system to another.  What are the things that can go wrong?
