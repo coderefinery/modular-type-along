@@ -26,7 +26,7 @@ averaged over the month. We imagine that we assemble a working script from
 various internet research/ AI chat recommendations and arrive at:
 :::::{tabs}
   ::::{group-tab} Python
-    :::{literalinclude} code/initial-version.py
+    :::{literalinclude} code/python/initial-version.py
     :language: python
     :::
   ::::

@@ -40,7 +40,7 @@ recommendations and arrive at:
 
 :::::{tabs}
   ::::{group-tab} Python
-    :::{literalinclude} code/initial-version.py
+    :::{literalinclude} code/python/initial-version.py
     :language: python
     :::
   ::::
@@ -61,7 +61,7 @@ This is still only the January data.
 
 :::::{tabs}
   ::::{group-tab} Python
-    :::{literalinclude} code/initial-version-with-mean.py
+    :::{literalinclude} code/python/initial-version-with-mean.py
     :language: python
     :emphasize-lines: 27-36
     :::
@@ -82,7 +82,7 @@ it for the precipitation column.
 
 :::::{tabs}
   ::::{group-tab} Python
-    :::{literalinclude} code/initial-version-with-precipitation.py
+    :::{literalinclude} code/python/initial-version-with-precipitation.py
     :language: python
     :emphasize-lines: 49-68
     :::
@@ -104,7 +104,7 @@ it for the precipitation column.
 
 :::::{tabs}
   ::::{group-tab} Python
-    :::{literalinclude} code/add-iteration.py
+    :::{literalinclude} code/python/add-iteration.py
     :language: python
     :emphasize-lines: 15-16,22-23,28,54-55
     :::
@@ -122,7 +122,7 @@ it for the precipitation column.
 
 :::::{tabs}
   ::::{group-tab} Python
-    :::{literalinclude} code/abstracting-plot.py
+    :::{literalinclude} code/python/abstracting-plot.py
     :language: python
     :emphasize-lines: 5,53-66
     :::
@@ -155,7 +155,7 @@ defined outside the function and hence there are **side-effects**.
 
 :::::{tabs}
   ::::{group-tab} Python
-    :::{literalinclude} code/small-improvements.py
+    :::{literalinclude} code/python/small-improvements.py
     :language: python
     :emphasize-lines: 5-14,17-19,34,56
     :::
@@ -205,7 +205,7 @@ We then improve towards:
 
 :::::{tabs}
   ::::{group-tab} Python
-    :::{literalinclude} code/towards-pure.py
+    :::{literalinclude} code/python/towards-pure.py
     :language: python
     :emphasize-lines: 22,27-28,34,53,56,61,83-84
     :::
@@ -230,7 +230,7 @@ they will still work.
 
 :::::{tabs}
   ::::{group-tab} Python
-    :::{literalinclude} code/testing.py
+    :::{literalinclude} code/python/testing.py
     :language: python
     :emphasize-lines: 3,23-25
     :::
@@ -262,7 +262,7 @@ they will still work.
 
 :::::{tabs}
   ::::{group-tab} Python
-    :::{literalinclude} code/cli.py
+    :::{literalinclude} code/python/cli.py
     :language: python
     :emphasize-lines: 1,7,66-84
     :::
