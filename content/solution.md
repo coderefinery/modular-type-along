@@ -222,7 +222,9 @@ These functions can now be copy-pasted to a different notebook or project and
 they will still work.
 
 
-## Unit tests
+## Unit tests (optional)
+
+In this section we look at how to apply [the testing lesson](https://coderefinery.github.io/testing/) to this example.
 
 - Discuss what one could mean with "design code for testing".
 - Discuss when to test and when not to test.
