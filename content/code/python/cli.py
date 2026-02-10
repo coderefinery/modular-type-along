@@ -10,11 +10,11 @@ import click
 def read_data(file_name):
     data = pd.read_csv(file_name)
 
-    # combine 'date' and 'time' into a single datetime column
-    data["datetime"] = pd.to_datetime(data["date"] + " " + data["time"])
+    # combine 'date' and 'time' into a single column 'recorded_at' as type datetime
+    data["recorded_at"] = pd.to_datetime(data["date"] + " " + data["time"])
 
-    # set datetime as index for convenience
-    data = data.set_index("datetime")
+    # set 'recorded_at' as index for convenience
+    data = data.set_index("recorded_at")
 
     return data
 
