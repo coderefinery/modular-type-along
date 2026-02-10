@@ -5,12 +5,11 @@ import matplotlib.pyplot as plt
 # read data
 data = pd.read_csv("weather_data.csv")
 
-# combine 'date' and 'time' into a single datetime column
-data["datetime"] = pd.to_datetime(data["date"] + " " + data["time"])
+# combine 'date' and 'time' into a single column 'recorded_at' as type datetime
+data["recorded_at"] = pd.to_datetime(data["date"] + " " + data["time"])
 
-# set datetime as index for convenience
-data = data.set_index("datetime")
-
+# set 'recorded_at' as index for convenience
+data = data.set_index("recorded_at")
 
 for month in ["2024-01", "2024-02", "2024-03"]:
     data_month = data.loc[month]
