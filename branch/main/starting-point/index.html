@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starting with an example code in a Notebook &mdash; Modular code development  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=949a1ff5" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+    <link rel="shortcut icon" href="../_static/coderefinery.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=187304be"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=582ca9e2"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+      <script data-domain="coderefinery.github.io" defer="defer" src="https://plausible.cs.aalto.fi/js/script.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Exercise" href="../exercise/" />
+    <link rel="prev" title="Modular code development - Making reusing parts of your code easier" href="../" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Modular code development
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Episodes</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Starting with an example code in a Notebook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#our-starting-point">Our starting point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#goals">Goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-we-plan-to-solve-it">How we plan to solve it</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#learning-outcomes">Learning outcomes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../exercise/">Exercise</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Optional</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../encapsulation/">Encapsulation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Solution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../solution/">One possible solution</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://youtu.be/xbTTDLA3txI">Shell crash course</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Modular code development</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Starting with an example code in a Notebook</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/modular-type-along/blob/main/content/starting-point.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="starting-with-an-example-code-in-a-notebook">
+<h1>Starting with an example code in a Notebook<a class="headerlink" href="#starting-with-an-example-code-in-a-notebook" title="Link to this heading"></a></h1>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Link to this heading"></a></h2>
+<p>The file <a class="reference external" href="https://github.com/coderefinery/modular-type-along-exercise/blob/main/weather_data.csv">weather_data.csv</a>
+(<a class="reference external" href="https://raw.githubusercontent.com/coderefinery/modular-type-along-exercise/refs/heads/main/weather_data.csv">raw csv file</a>)
+contains hourly weather measurements from the observation station
+“Vantaa Helsinki-Vantaan lentoasema” (Helsinki airport) during 2024.</p>
+<div class="admonition-origin-of-the-data admonition">
+<p class="admonition-title">Origin of the data</p>
+<p>Data obtained from
+<a class="reference external" href="https://en.ilmatieteenlaitos.fi/download-observations#!/">https://en.ilmatieteenlaitos.fi/download-observations#!/</a> on 2025-09-18.</p>
+<p>Data has been provided by the Finnish Meteorological Institute
+under the Creative Commons Attribution 4.0 International license (CC BY 4.0):
+<a class="reference external" href="https://en.ilmatieteenlaitos.fi/open-data-licence">https://en.ilmatieteenlaitos.fi/open-data-licence</a></p>
+</div>
+</section>
+<section id="our-starting-point">
+<h2>Our starting point<a class="headerlink" href="#our-starting-point" title="Link to this heading"></a></h2>
+<p>Our starting point for this exercise is a script which plots a series of
+temperatures and precipitations for <strong>January</strong> as well as
+the <strong>mean temperature</strong> averaged over the month. Suppose that we
+assemble a working script from various internet research/AI chat
+recommendations and arrive at:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button><button aria-controls="panel-0-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Ug==" name="Ug==" role="tab" tabindex="-1">R</button></div><div aria-labelledby="tab-0-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-0-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+
+<span class="c1"># read data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;weather_data.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># combine &#39;date&#39; and &#39;time&#39; into a single column &#39;recorded_at&#39; as type datetime</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;recorded_at&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">])</span>
+
+<span class="c1"># set &#39;recorded_at&#39; as index for convenience</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;recorded_at&quot;</span><span class="p">)</span>
+
+<span class="c1"># keep only january data using datetime period indexing</span>
+<span class="n">january</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2024-01&quot;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># temperature time series</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">january</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">january</span><span class="p">[</span><span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;air temperature (C)&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="n">january</span><span class="p">[</span><span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">mean_temp</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1"># mean temperature (as horizontal dashed line)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">mean_temp</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;mean air temperature (C): </span><span class="si">{</span><span class="n">mean_temp</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+    <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;air temperature (C) at Helsinki airport&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date and time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;air temperature (C)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># format x-axis for better date display</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;2024-01-temperature.png&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># precipitation time series</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">january</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">january</span><span class="p">[</span><span class="s2">&quot;precipitation_mm&quot;</span><span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;precipitation (mm)&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;precipitation (mm) at Helsinki airport&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date and time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;precipitation (mm)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># format x-axis for better date display</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;2024-01-precipitation.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p>Work in progress. You can
+<a class="reference external" href="https://github.com/coderefinery/modular-type-along/issues/40">help us</a>
+by contributing or improving an R solution.</p>
+</div></div>
+<p>This example is in Python but we will try to see “through” the code and
+focus on the bigger picture and hopefully manage to imagine other
+languages in its place. For the Python experts: we will not see the most
+elegant Python.</p>
+</section>
+<section id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Once we get this working for <strong>January</strong>, our task changes to also
+plot the <strong>February</strong> and the <strong>March</strong> in two additional
+plots.</p></li>
+<li><p>Later, we wish to generalize the code so that a user can compute and plot
+this for <strong>any month</strong>, <strong>without changing the code</strong> (with a command line
+interface).</p></li>
+</ul>
+</section>
+<section id="how-we-plan-to-solve-it">
+<h2>How we plan to solve it<a class="headerlink" href="#how-we-plan-to-solve-it" title="Link to this heading"></a></h2>
+<p>Before we attempt to do this, we discuss with workshop participants how
+they would tackle this problem.</p>
+<p>Together we improve the code based on suggestions from learners towards
+more modularity and re-usability.</p>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<p>Participants give suggestions and ask questions via collaborative document
+and instructor(s) try to follow and answer. They can also roughly follow
+the ideas and steps in the <a class="reference internal" href="../solution/"><span class="doc">One possible solution</span></a>.</p>
+<p>It is OK and good if mistakes happen and it is fun if the instructor(s) can
+convey a bit of “improv” feel to this lesson.</p>
+</div>
+</section>
+<section id="learning-outcomes">
+<h2>Learning outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Know about <strong>pure functions</strong> (functions without side effects, functions which
+given same input always return same output).</p></li>
+<li><p>Learn why and how to <strong>limit side effects</strong> of functions.</p></li>
+<li><p>Discuss why and how to limit side effects of data. Also discuss when
+mutable data may be preferable.</p></li>
+<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0020/">The Zen of Python</a></p></li>
+<li><p>Discuss why <strong>single-purpose functions</strong> are often preferred over
+multi-purpose functions.</p></li>
+<li><p><strong>Split-apply-combine</strong>, which lets you more easily parallelize. Make your code
+modular in a way that lets you split the steps and parallelize.</p></li>
+<li><p>Think about <strong>global vs local</strong> data structures. It is not easy to
+separate them right.</p></li>
+<li><p>Understand how a command line interface to a code can improve usability and also
+make the code more versatile (to be combined with workflow management tools).</p></li>
+<li><p>Connect modular code development to the remaining lessons (version control, testing,
+documentation, reproducibility).</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../" class="btn btn-neutral float-left" title="Modular code development - Making reusing parts of your code easier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../exercise/" class="btn btn-neutral float-right" title="Exercise" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
