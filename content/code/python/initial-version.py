@@ -24,6 +24,17 @@ ax.plot(
     color="red",
 )
 
+values = january["air_temperature_celsius"].values
+mean_temp = sum(values) / len(values)
+
+# mean temperature (as horizontal dashed line)
+ax.axhline(
+    y=mean_temp,
+    label=f"mean air temperature (C): {mean_temp:.1f}",
+    color="red",
+    linestyle="--",
+)
+
 ax.set_title("air temperature (C) at Helsinki airport")
 ax.set_xlabel("date and time")
 ax.set_ylabel("air temperature (C)")
@@ -34,3 +45,24 @@ ax.grid(True)
 fig.autofmt_xdate()
 
 fig.savefig("2024-01-temperature.png")
+
+fig, ax = plt.subplots()
+
+# precipitation time series
+ax.plot(
+    january.index,
+    january["precipitation_mm"],
+    label="precipitation (mm)",
+    color="blue",
+)
+
+ax.set_title("precipitation (mm) at Helsinki airport")
+ax.set_xlabel("date and time")
+ax.set_ylabel("precipitation (mm)")
+ax.legend()
+ax.grid(True)
+
+# format x-axis for better date display
+fig.autofmt_xdate()
+
+fig.savefig("2024-01-precipitation.png")
