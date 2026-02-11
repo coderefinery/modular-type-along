@@ -18,12 +18,12 @@ under the Creative Commons Attribution 4.0 International license (CC BY 4.0):
 :::
 
 
-## Our initial goal
+## Our starting point
 
 Our initial goal for this exercise is to plot a series of temperatures and
 precipitations for **January** and to compute and plot the **mean temperature**
-averaged over the month. We imagine that we assemble a working script from
-various internet research/ AI chat recommendations and arrive at:
+averaged over the month. Suppose that we assemble a working script from
+various internet research/AI chat recommendations and arrive at:
 :::::{tabs}
   ::::{group-tab} Python
     :::{literalinclude} code/python/initial-version.py
