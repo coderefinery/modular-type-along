@@ -18,15 +18,13 @@ Learners can also explore some of these steps in one of the exercise sessions.
 ## Checklist
 
 - Start with notebook
-- Add statistics (mean temperature)
-- Add precipitation
 - Generalize from January to also February and March data
 - Abstract code into functions
 - Move from notebook to script
 - From functions with side-effects towards stateless functions
 - Initialize git
 - Add `requirements.txt`
-- Add test
+- Add test (optional)
 - Add command line interface
 - Show how a workflow solution could look
 - Split into multiple files/modules
@@ -34,8 +32,10 @@ Learners can also explore some of these steps in one of the exercise sessions.
 
 ## Our initial version
 
-We imagine that we assemble a working script/code
-from various internet research/ AI chat
+The initial version of our script for this exercise plots a series of
+temperatures and precipitations for **January** as well as
+the **mean temperature** averaged over the month. Suppose that we
+assemble a working script from various internet research/AI chat
 recommendations and arrive at:
 
 :::::{tabs}
@@ -53,47 +53,6 @@ recommendations and arrive at:
 :::::
 
 - We test it out **in a notebook**.
-
-
-## We add a dashed line representing the mean temperature
-
-This is still only the January data.
-
-:::::{tabs}
-  ::::{group-tab} Python
-    :::{literalinclude} code/python/initial-version-with-mean.py
-    :language: python
-    :emphasize-lines: 27-36
-    :::
-  ::::
-
-  ::::{group-tab} R
-    Work in progress. You can
-    [help us](https://github.com/coderefinery/modular-type-along/issues/40)
-    by contributing or improving an R solution.
-  ::::
-:::::
-
-
-## We add another plot for the precipitation
-
-As a first go, we achieve this by copy pasting the existing code and adjusting
-it for the precipitation column.
-
-:::::{tabs}
-  ::::{group-tab} Python
-    :::{literalinclude} code/python/initial-version-with-precipitation.py
-    :language: python
-    :emphasize-lines: 49-68
-    :::
-  ::::
-
-  ::::{group-tab} R
-    Work in progress. You can
-    [help us](https://github.com/coderefinery/modular-type-along/issues/40)
-    by contributing or improving an R solution.
-  ::::
-:::::
 
 
 ## Plotting also February and March data

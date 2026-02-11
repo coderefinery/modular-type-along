@@ -20,10 +20,12 @@ under the Creative Commons Attribution 4.0 International license (CC BY 4.0):
 
 ## Our starting point
 
-Our initial goal for this exercise is to plot a series of temperatures and
-precipitations for **January** and to compute and plot the **mean temperature**
-averaged over the month. Suppose that we assemble a working script from
-various internet research/AI chat recommendations and arrive at:
+Our starting point for this exercise is a script which plots a series of
+temperatures and precipitations for **January** as well as
+the **mean temperature** averaged over the month. Suppose that we
+assemble a working script from various internet research/AI chat
+recommendations and arrive at:
+
 :::::{tabs}
   ::::{group-tab} Python
     :::{literalinclude} code/python/initial-version.py
@@ -44,7 +46,7 @@ languages in its place. For the Python experts: we will not see the most
 elegant Python.
 
 
-## Further goals
+## Goals
 
 - Once we get this working for **January**, our task changes to also
   plot the **February** and the **March** in two additional
