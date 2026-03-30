@@ -16,10 +16,12 @@ authors:
   given-names: "Ole Martin"
 - family-names: "Fouilloux"
   given-names: "Anne"
+- family-names: "Robertson"
+  given-names: "Frankie"
 title: "Modular code development type-along"
 type: "data"
 abstract: "Making reusing parts of your code easier. The focus of this lesson is how to partition and organize projects as they grow from one screen-full to larger and how to make code portions reusable across projects and across notebooks."
-version: 2025-02-26
+version: 2026-03-30
 date-released: 2025-02-26
 url: "https://coderefinery.github.io/modular-type-along/"
 license: CC-BY-4.0
