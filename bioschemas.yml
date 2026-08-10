@@ -37,6 +37,10 @@
         {
             "@type": "Person",
             "name": "Anne Fouilloux"
+        },
+        {
+            "@type": "Person",
+            "name": "Frankie Robertson"
         }
     ],
     "about": "Making reusing parts of your code easier. The focus of this lesson is how to partition and organize projects as they grow from one screen-full to larger and how to make code portions reusable across projects and across notebooks.",
