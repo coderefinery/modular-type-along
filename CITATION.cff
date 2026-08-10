@@ -1,26 +1,29 @@
 cff-version: 1.2.0
-message: "If you use this lesson material, please cite it using these metadata."
+message: If you use this lesson material, please cite it using these metadata.
 authors:
-- name: "CodeRefinery"
-- family-names: "Bast"
-  given-names: "Radovan"
-- family-names: "Darst"
-  given-names: "Richard"
-- family-names: "Tian"
-  given-names: "Yu"
-- family-names:  "Juselius"
-  given-names: "Jonas"
-- family-names: "Di Remigio Eikås"
-  given-names: "Roberto"
-- family-names: "Bjørndalen"
-  given-names: "Ole Martin"
-- family-names: "Fouilloux"
-  given-names: "Anne"
-title: "Modular code development type-along"
-type: "data"
-abstract: "Making reusing parts of your code easier. The focus of this lesson is how to partition and organize projects as they grow from one screen-full to larger and how to make code portions reusable across projects and across notebooks."
-version: 2025-02-26
-date-released: 2025-02-26
-url: "https://coderefinery.github.io/modular-type-along/"
+- name: CodeRefinery
+- family-names: Bast
+  given-names: Radovan
+- family-names: Darst
+  given-names: Richard
+- family-names: Tian
+  given-names: Yu
+- family-names: Juselius
+  given-names: Jonas
+- family-names: Di Remigio Eikås
+  given-names: Roberto
+- family-names: Bjørndalen
+  given-names: Ole Martin
+- family-names: Fouilloux
+  given-names: Anne
+title: Modular code development type-along - CodeRefinery lesson
+type: dataset
+abstract: Making reusing parts of your code easier. The focus of this lesson is how
+  to partition and organize projects as they grow from one screen-full to larger and
+  how to make code portions reusable across projects and across notebooks.
+version: '2026-08-10'
+doi: 10.5281/zenodo.16925149
+date-released: '2026-08-10'
+url: https://coderefinery.github.io/modular-type-along
 license: CC-BY-4.0
-repository-code: "https://github.com/coderefinery/modular-type-along"
+repository-code: https://github.com/coderefinery/modular-type-along

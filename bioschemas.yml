@@ -1,0 +1,55 @@
+{
+    "@context": "https://schema.org/",
+    "@type": "LearningResource",
+    "@id": "https://coderefinery.github.io/modular-type-along",
+    "description": "Making reusing parts of your code easier. The focus of this lesson is how to partition and organize projects as they grow from one screen-full to larger and how to make code portions reusable across projects and across notebooks.",
+    "keywords": "modular coding, reuse",
+    "name": "Modular code development type-along - CodeRefinery lesson",
+    "author": [
+        {
+            "@type": "Organization",
+            "name": "CodeRefinery"
+        },
+        {
+            "@type": "Person",
+            "name": "Radovan Bast"
+        },
+        {
+            "@type": "Person",
+            "name": "Richard Darst"
+        },
+        {
+            "@type": "Person",
+            "name": "Yu Tian"
+        },
+        {
+            "@type": "Person",
+            "name": "Jonas Juselius"
+        },
+        {
+            "@type": "Person",
+            "name": "Roberto Di Remigio Eik\u00e5s"
+        },
+        {
+            "@type": "Person",
+            "name": "Ole Martin Bj\u00f8rndalen"
+        },
+        {
+            "@type": "Person",
+            "name": "Anne Fouilloux"
+        }
+    ],
+    "about": "Making reusing parts of your code easier. The focus of this lesson is how to partition and organize projects as they grow from one screen-full to larger and how to make code portions reusable across projects and across notebooks.",
+    "audience": "",
+    "competencyRequired": "",
+    "educationalLevel": "Beginner",
+    "identifier": "https://doi.org/10.5281/zenodo.16925149",
+    "inLanguage": "en-UK",
+    "learningResourceType": "lesson",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "teaches": "",
+    "url": "https://coderefinery.github.io/modular-type-along",
+    "accessibilitySummary": "",
+    "isPartOf": "https://coderefinery.org",
+    "version": "2026-08-10"
+}
