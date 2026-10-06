@@ -1,0 +1,1259 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modular code development documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=949a1ff5" />
+      <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=a5c4661c" />
+
+  
+    <link rel="shortcut icon" href="_static/coderefinery.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d6d90d09"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=582ca9e2"></script>
+      <script src="_static/minipres.js?v=a0d29692"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="_static/togglebutton.js?v=1ae7504c"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="_static/tabs.js?v=3030b3cb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Modular code development
+          </a>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Episodes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#document-starting-point">Starting with an example code in a Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-exercise">Exercise</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Optional</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#document-encapsulation">Encapsulation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Solution</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#document-solution">One possible solution</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://youtu.be/xbTTDLA3txI">Shell crash course</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/core/">All lessons</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/">CodeRefinery</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://coderefinery.org/lessons/reusing/">Reusing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Modular code development</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Modular code development  documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/modular-type-along/blob/main/content/index" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="modular-code-development-making-reusing-parts-of-your-code-easier">
+<h1>Modular code development - Making reusing parts of your code easier<a class="headerlink" href="#modular-code-development-making-reusing-parts-of-your-code-easier" title="Link to this heading"></a></h1>
+<p>Type-along/demo where we discuss and experience aspects of (un)modular
+code development. <strong>We will focus on the “why”, not on the “how”</strong>.</p>
+<p>Image to get started:
+<a class="reference external" href="https://doi.org/10.1371/journal.pcbi.1008549.g005">The curse of bad code design</a>
+(Ten simple rules for quick and dirty scientific programming. PLoS Comput Biol
+17(3): e1008549. <a class="reference external" href="https://doi.org/10.1371/journal.pcbi.1008549">https://doi.org/10.1371/journal.pcbi.1008549</a>)</p>
+<section id="timing-overview">
+<h2>Timing overview<a class="headerlink" href="#timing-overview" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>20 min</p></td>
+<td><p><a class="reference internal" href="#document-starting-point"><span class="doc">Starting with an example code in a Notebook</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>20 min</p></td>
+<td><p><a class="reference internal" href="#document-exercise"><span class="doc">Exercise</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>10 min</p></td>
+<td><p>Discussion</p></td>
+</tr>
+<tr class="row-even"><td><p>10 min</p></td>
+<td><p>Break</p></td>
+</tr>
+<tr class="row-odd"><td><p>50 min</p></td>
+<td><p>Live-coding with suggestions via notes (<a class="reference internal" href="#document-solution"><span class="doc">One possible solution</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>10 min</p></td>
+<td><p>Break</p></td>
+</tr>
+<tr class="row-odd"><td><p>15 min</p></td>
+<td><p>Discussion</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<span id="document-starting-point"></span><section id="starting-with-an-example-code-in-a-notebook">
+<h3>Starting with an example code in a Notebook<a class="headerlink" href="#starting-with-an-example-code-in-a-notebook" title="Link to this heading"></a></h3>
+<section id="data">
+<h4>Data<a class="headerlink" href="#data" title="Link to this heading"></a></h4>
+<p>The file <a class="reference external" href="https://github.com/coderefinery/modular-type-along-exercise/blob/main/weather_data.csv">weather_data.csv</a>
+(<a class="reference external" href="https://raw.githubusercontent.com/coderefinery/modular-type-along-exercise/refs/heads/main/weather_data.csv">raw csv file</a>)
+contains hourly weather measurements from the observation station
+“Vantaa Helsinki-Vantaan lentoasema” (Helsinki airport) during 2024.</p>
+<div class="admonition-origin-of-the-data admonition">
+<p class="admonition-title">Origin of the data</p>
+<p>Data obtained from
+<a class="reference external" href="https://en.ilmatieteenlaitos.fi/download-observations#!/">https://en.ilmatieteenlaitos.fi/download-observations#!/</a> on 2025-09-18.</p>
+<p>Data has been provided by the Finnish Meteorological Institute
+under the Creative Commons Attribution 4.0 International license (CC BY 4.0):
+<a class="reference external" href="https://en.ilmatieteenlaitos.fi/open-data-licence">https://en.ilmatieteenlaitos.fi/open-data-licence</a></p>
+</div>
+</section>
+<section id="our-initial-goal">
+<h4>Our initial goal<a class="headerlink" href="#our-initial-goal" title="Link to this heading"></a></h4>
+<p>Our initial goal for this exercise is to plot a series of temperatures and
+precipitations for <strong>January</strong> and to compute and plot the <strong>mean temperature</strong>
+averaged over the month. We imagine that we assemble a working script from
+various internet research/ AI chat recommendations and arrive at:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button><button aria-controls="panel-0-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Ug==" name="Ug==" role="tab" tabindex="-1">R</button></div><div aria-labelledby="tab-0-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-0-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+
+<span class="c1"># read data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;weather_data.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># combine &#39;date&#39; and &#39;time&#39; into a single datetime column</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">])</span>
+
+<span class="c1"># set datetime as index for convenience</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;datetime&quot;</span><span class="p">)</span>
+
+<span class="c1"># keep only january data</span>
+<span class="n">january</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2024-01&quot;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># temperature time series</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">january</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">january</span><span class="p">[</span><span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;air temperature (C)&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;air temperature (C) at Helsinki airport&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date and time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;air temperature (C)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># format x-axis for better date display</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;2024-01-temperature.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p>Work in progress. You can
+<a class="reference external" href="https://github.com/coderefinery/modular-type-along/issues/40">help us</a>
+by contributing or improving an R solution.</p>
+</div></div>
+<p>This example is in Python but we will try to see “through” the code and
+focus on the bigger picture and hopefully manage to imagine other
+languages in its place. For the Python experts: we will not see the most
+elegant Python.</p>
+</section>
+<section id="further-goals">
+<h4>Further goals<a class="headerlink" href="#further-goals" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Once we get this working for <strong>January</strong>, our task changes to also
+plot the <strong>February</strong> and the <strong>March</strong> in two additional
+plots.</p></li>
+<li><p>Later, we wish to generalize the code so that a user can compute and plot
+this for <strong>any month</strong>, <strong>without changing the code</strong> (with a command line
+interface).</p></li>
+</ul>
+</section>
+<section id="how-we-plan-to-solve-it">
+<h4>How we plan to solve it<a class="headerlink" href="#how-we-plan-to-solve-it" title="Link to this heading"></a></h4>
+<p>Before we attempt to do this, we discuss with workshop participants how
+they would tackle this problem.</p>
+<p>Together we improve the code based on suggestions from learners towards
+more modularity and re-usability.</p>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<p>Participants give suggestions and ask questions via collaborative document
+and instructor(s) try to follow and answer. They can also roughly follow
+the ideas and steps in the <a class="reference internal" href="#document-solution"><span class="doc">One possible solution</span></a>.</p>
+<p>It is OK and good if mistakes happen and it is fun if the instructor(s) can
+convey a bit of “improv” feel to this lesson.</p>
+</div>
+</section>
+<section id="learning-outcomes">
+<h4>Learning outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Know about <strong>pure functions</strong> (functions without side effects, functions which
+given same input always return same output).</p></li>
+<li><p>Learn why and how to <strong>limit side effects</strong> of functions.</p></li>
+<li><p>Discuss why and how to limit side effects of data. Also discuss when
+mutable data may be preferable.</p></li>
+<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0020/">The Zen of Python</a></p></li>
+<li><p>Discuss why <strong>single-purpose functions</strong> are often preferred over
+multi-purpose functions.</p></li>
+<li><p><strong>Split-apply-combine</strong>, which lets you more easily parallelize. Make your code
+modular in a way that lets you split the steps and parallelize.</p></li>
+<li><p>Think about <strong>global vs local</strong> data structures. It is not easy to
+separate them right.</p></li>
+<li><p>Understand how a command line interface to a code can improve usability and also
+make the code more versatile (to be combined with workflow management tools).</p></li>
+<li><p>Connect modular code development to the remaining lessons (version control, testing,
+documentation, reproducibility).</p></li>
+</ul>
+</section>
+</section>
+<span id="document-exercise"></span><section id="exercise">
+<h3>Exercise<a class="headerlink" href="#exercise" title="Link to this heading"></a></h3>
+<div class="admonition-you-can-participate-in-two-ways admonition">
+<p class="admonition-title">You can participate in two ways</p>
+<ul class="simple">
+<li><p>Either by discussing with others and writing your own thoughts via collaborative notes</p></li>
+<li><p>Or by coding</p></li>
+<li><p>Or a mix of the two that is most meaningful for you or your group</p></li>
+</ul>
+</div>
+<section id="discussion-track">
+<h4>Discussion track<a class="headerlink" href="#discussion-track" title="Link to this heading"></a></h4>
+<p>We share these questions in a common collaborative document:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A. What does &quot;modular code development&quot; mean for you?
+B. What best practices can you recommend to arrive at well structured,
+   modular code in your favourite programming language?
+C. What do you know now about programming that you wish somebody told you earlier?
+D. Do you design a new code project on paper before coding? Discuss pros
+   and cons.
+E. Do you build your code top-down (starting from the big picture) or bottom-up
+   (starting from components)? Discuss pros and cons.
+F. Would you prefer your code to be 2x slower if it was easier to read and understand?
+</pre></div>
+</div>
+<p>They can be answered by individual learners but also discussed within an
+exercise group.</p>
+</section>
+<section id="coding-track">
+<h4>Coding track<a class="headerlink" href="#coding-track" title="Link to this heading"></a></h4>
+<p>You can practice on our <a class="reference external" href="https://github.com/coderefinery/modular-type-along-exercise">exercise repository</a> which contains:</p>
+<ul class="simple">
+<li><p>Data set</p></li>
+<li><p>Python notebook which works but is not super general</p></li>
+</ul>
+<p>To run the notebook, you’ll need <a class="reference external" href="https://coderefinery.github.io/installation/conda/">the same conda environment</a> used throughout this workshop. You can activate it and launch Jupyter Lab with these commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">   </span>conda<span class="w"> </span>activate<span class="w"> </span>coderefinery
+<span class="w">   </span>jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+<p>How to contribute improvements:</p>
+<ul class="simple">
+<li><p>Open issue at the <a class="reference external" href="https://github.com/coderefinery/modular-type-along-exercise">exercise repository</a> and in your pull request refer to that issue.</p></li>
+</ul>
+<p>Exercise ideas (sorted from basic to advanced):</p>
+<ul class="simple">
+<li><p>Improve the README</p></li>
+<li><p>Add example usage to the README</p></li>
+<li><p>Add a result image to the README</p></li>
+<li><p>Make it installable and document installation (requirements.txt or environment.yml, pip/conda/…)</p></li>
+<li><p>Improve error messages (e.g., input file does not exist or does not contain data we want to plot)</p></li>
+<li><p>Draw a call tree for one of your recent projects. Identify the
+functions in your call tree which are “pure” (which have no side-effects).</p></li>
+<li><p>Try out with your own data</p></li>
+<li><p>Contribute a notebook/script with weather data from your place <strong>in your
+favorite programming language</strong></p></li>
+<li><p>Make the notebook (more) reproducible</p></li>
+<li><p>Add automated tests</p></li>
+<li><p>Add a command line interface</p></li>
+<li><p>If you use AI, any tricks you can share to get modular code from it?</p></li>
+<li><p>How would you restructure the code to make it more maintainable and collaborative?</p></li>
+<li><p>Add support for Snakemake or any other workflow management tool</p></li>
+</ul>
+</section>
+</section>
+</div>
+<div class="toctree-wrapper compound">
+<span id="document-encapsulation"></span><section id="encapsulation">
+<h3>Encapsulation<a class="headerlink" href="#encapsulation" title="Link to this heading"></a></h3>
+<p>Encapsulation in software development refers to isolating a piece of software and its dependencies from the external environment so that it can function, be reused, or moved independently.
+It can happen at different levels — within code (e.g., functions, classes, or modules), within environments (e.g., virtual environments, containers), or even at the system level (e.g., portable workflows and data management).</p>
+<div class="admonition-types-of-encapsulation discussion important admonition" id="discussion-0">
+<p class="admonition-title">Types of encapsulation</p>
+<p>Let’s say you want to move a code from one system to another.  What are the things that can go wrong?</p>
+<ul class="simple">
+<li><p><strong>In-language dependencies</strong>, e.g. Python. Can they all be expressed <em>only</em> in
+<code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>?  Do you wrap everything in a container?</p></li>
+<li><p><strong>Paths</strong>: Can you always use relative paths?</p></li>
+<li><p><strong>Operating-system (OS) dependencies, libraries, etc.</strong>: Can you eliminate them?</p></li>
+<li><p><strong>Data files</strong>: Are they controlled or few that you can migrate, or if you wanted
+to move it, are you forced to copy the whole directory without regard to what
+the file is (thus creating a lot of duplicates, and a big mess?)</p></li>
+<li><p>Are you using something that is <strong>OS-specific</strong> (GNU/Linux vs BSD)?</p></li>
+<li><p>Do you use support programs only available on certain computers?  Fewer
+external utilities you use = easier portability.</p></li>
+</ul>
+</div>
+<div class="admonition-what-needs-to-be-global-vs-what-needs-to-be-local discussion important admonition" id="discussion-1">
+<p class="admonition-title">What needs to be global vs what needs to be local?</p>
+<ul class="simple">
+<li><p>Global data can be “seen”/accessed in the entire code.</p></li>
+<li><p>Local data is only available in the local vicinity of its definition.</p></li>
+<li><p>Try to have as little global data as possible.</p></li>
+<li><p>Global data are often input parameters, configuration parameters, command-line arguments.</p></li>
+<li><p>But try to localize these to the “main” code/function.</p></li>
+</ul>
+</div>
+</section>
+</div>
+<div class="toctree-wrapper compound">
+<span id="document-solution"></span><section id="one-possible-solution">
+<h3>One possible solution<a class="headerlink" href="#one-possible-solution" title="Link to this heading"></a></h3>
+<section id="before-we-start">
+<h4>Before we start<a class="headerlink" href="#before-we-start" title="Link to this heading"></a></h4>
+<p>We <strong>don’t have to follow this line by line</strong> but it’s important to study
+this example well before demonstrating this.</p>
+<p>Emphasize that the example is Python but we will try to see “through”
+the code and <strong>focus on the bigger picture</strong> and hopefully manage to imagine
+other languages in its place.</p>
+<p>We <strong>collect ideas and feedback in the collaborative document while coding</strong> and the instructor
+tries to react to that without going into the rabbit hole.</p>
+<p>Learners can also explore some of these steps in one of the exercise sessions.</p>
+</section>
+<section id="checklist">
+<h4>Checklist<a class="headerlink" href="#checklist" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Start with notebook</p></li>
+<li><p>Add statistics (mean temperature)</p></li>
+<li><p>Add precipitation</p></li>
+<li><p>Generalize from January to also February and March data</p></li>
+<li><p>Abstract code into functions</p></li>
+<li><p>Move from notebook to script</p></li>
+<li><p>From functions with side-effects towards stateless functions</p></li>
+<li><p>Initialize git</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p></li>
+<li><p>Add test</p></li>
+<li><p>Add command line interface</p></li>
+<li><p>Show how a workflow solution could look</p></li>
+<li><p>Split into multiple files/modules</p></li>
+</ul>
+</section>
+<section id="our-initial-version">
+<h4>Our initial version<a class="headerlink" href="#our-initial-version" title="Link to this heading"></a></h4>
+<p>We imagine that we assemble a working script/code
+from various internet research/ AI chat
+recommendations and arrive at:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button><button aria-controls="panel-0-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Ug==" name="Ug==" role="tab" tabindex="-1">R</button></div><div aria-labelledby="tab-0-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-0-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+
+<span class="c1"># read data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;weather_data.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># combine &#39;date&#39; and &#39;time&#39; into a single datetime column</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">])</span>
+
+<span class="c1"># set datetime as index for convenience</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;datetime&quot;</span><span class="p">)</span>
+
+<span class="c1"># keep only january data</span>
+<span class="n">january</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2024-01&quot;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># temperature time series</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">january</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">january</span><span class="p">[</span><span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;air temperature (C)&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;air temperature (C) at Helsinki airport&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date and time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;air temperature (C)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># format x-axis for better date display</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;2024-01-temperature.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p>Work in progress. You can
+<a class="reference external" href="https://github.com/coderefinery/modular-type-along/issues/40">help us</a>
+by contributing or improving an R solution.</p>
+</div></div>
+<ul class="simple">
+<li><p>We test it out <strong>in a notebook</strong>.</p></li>
+</ul>
+</section>
+<section id="we-add-a-dashed-line-representing-the-mean-temperature">
+<h4>We add a dashed line representing the mean temperature<a class="headerlink" href="#we-add-a-dashed-line-representing-the-mean-temperature" title="Link to this heading"></a></h4>
+<p>This is still only the January data.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button><button aria-controls="panel-1-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-Ug==" name="Ug==" role="tab" tabindex="-1">R</button></div><div aria-labelledby="tab-1-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-1-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+
+<span class="c1"># read data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;weather_data.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># combine &#39;date&#39; and &#39;time&#39; into a single datetime column</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">])</span>
+
+<span class="c1"># set datetime as index for convenience</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;datetime&quot;</span><span class="p">)</span>
+
+<span class="c1"># keep only january data</span>
+<span class="n">january</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2024-01&quot;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># temperature time series</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">january</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">january</span><span class="p">[</span><span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;air temperature (C)&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="hll"><span class="n">values</span> <span class="o">=</span> <span class="n">january</span><span class="p">[</span><span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</span><span class="hll"><span class="n">mean_temp</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll"><span class="c1"># mean temperature (as horizontal dashed line)</span>
+</span><span class="hll"><span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span>
+</span><span class="hll">    <span class="n">y</span><span class="o">=</span><span class="n">mean_temp</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;mean air temperature (C): </span><span class="si">{</span><span class="n">mean_temp</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="p">)</span>
+</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;air temperature (C) at Helsinki airport&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date and time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;air temperature (C)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># format x-axis for better date display</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;2024-01-temperature.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p>Work in progress. You can
+<a class="reference external" href="https://github.com/coderefinery/modular-type-along/issues/40">help us</a>
+by contributing or improving an R solution.</p>
+</div></div>
+</section>
+<section id="we-add-another-plot-for-the-precipitation">
+<h4>We add another plot for the precipitation<a class="headerlink" href="#we-add-another-plot-for-the-precipitation" title="Link to this heading"></a></h4>
+<p>As a first go, we achieve this by copy pasting the existing code and adjusting
+it for the precipitation column.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button><button aria-controls="panel-2-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-Ug==" name="Ug==" role="tab" tabindex="-1">R</button></div><div aria-labelledby="tab-2-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-2-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+
+<span class="c1"># read data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;weather_data.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># combine &#39;date&#39; and &#39;time&#39; into a single datetime column</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">])</span>
+
+<span class="c1"># set datetime as index for convenience</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;datetime&quot;</span><span class="p">)</span>
+
+<span class="c1"># keep only january data</span>
+<span class="n">january</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;2024-01&quot;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># temperature time series</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">january</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">january</span><span class="p">[</span><span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">],</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;air temperature (C)&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="n">january</span><span class="p">[</span><span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">mean_temp</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1"># mean temperature (as horizontal dashed line)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">mean_temp</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;mean air temperature (C): </span><span class="si">{</span><span class="n">mean_temp</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+    <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;air temperature (C) at Helsinki airport&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date and time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;air temperature (C)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># format x-axis for better date display</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;2024-01-temperature.png&quot;</span><span class="p">)</span>
+
+<span class="hll"><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</span><span class="hll">
+</span><span class="hll"><span class="c1"># precipitation time series</span>
+</span><span class="hll"><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+</span><span class="hll">    <span class="n">january</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">january</span><span class="p">[</span><span class="s2">&quot;precipitation_mm&quot;</span><span class="p">],</span>
+</span><span class="hll">    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;precipitation (mm)&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll"><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;precipitation (mm) at Helsinki airport&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date and time&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;precipitation (mm)&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span><span class="hll"><span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll"><span class="c1"># format x-axis for better date display</span>
+</span><span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+</span><span class="hll">
+</span><span class="hll"><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;2024-01-precipitation.png&quot;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div><div aria-labelledby="tab-2-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p>Work in progress. You can
+<a class="reference external" href="https://github.com/coderefinery/modular-type-along/issues/40">help us</a>
+by contributing or improving an R solution.</p>
+</div></div>
+</section>
+<section id="plotting-also-february-and-march-data">
+<h4>Plotting also February and March data<a class="headerlink" href="#plotting-also-february-and-march-data" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Copy-pasting very similar code 6 times would be too complicated to maintain.</p></li>
+<li><p>We avoid this by iterating over the first 3 months.</p></li>
+<li><p>Instead of reusing <code class="docutils literal notranslate"><span class="pre">data</span></code>, we introduce <code class="docutils literal notranslate"><span class="pre">data_month</span></code>.</p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-3-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button><button aria-controls="panel-3-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-Ug==" name="Ug==" role="tab" tabindex="-1">R</button></div><div aria-labelledby="tab-3-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-3-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+
+<span class="c1"># read data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;weather_data.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># combine &#39;date&#39; and &#39;time&#39; into a single datetime column</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">])</span>
+
+<span class="c1"># set datetime as index for convenience</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;datetime&quot;</span><span class="p">)</span>
+
+
+<span class="hll"><span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;2024-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-02&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-03&quot;</span><span class="p">]:</span>
+</span><span class="hll">    <span class="n">data_month</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">month</span><span class="p">]</span>
+</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="c1"># temperature time series</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+<span class="hll">        <span class="n">data_month</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">data_month</span><span class="p">[</span><span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">],</span>
+</span>        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;air temperature (C)&quot;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="hll">    <span class="n">values</span> <span class="o">=</span> <span class="n">data_month</span><span class="p">[</span><span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</span>    <span class="n">mean_temp</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="c1"># mean temperature (as horizontal dashed line)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">mean_temp</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;mean air temperature (C): </span><span class="si">{</span><span class="n">mean_temp</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+        <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;air temperature (C) at Helsinki airport&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date and time&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;air temperature (C)&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># format x-axis for better date display</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-temperature.png&quot;</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="c1"># precipitation time series</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+<span class="hll">        <span class="n">data_month</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">data_month</span><span class="p">[</span><span class="s2">&quot;precipitation_mm&quot;</span><span class="p">],</span>
+</span>        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;precipitation (mm)&quot;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;precipitation (mm) at Helsinki airport&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date and time&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;precipitation (mm)&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># format x-axis for better date display</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-precipitation.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-3-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p>Work in progress. You can
+<a class="reference external" href="https://github.com/coderefinery/modular-type-along/issues/40">help us</a>
+by contributing or improving an R solution.</p>
+</div></div>
+</section>
+<section id="abstracting-the-plotting-part-into-a-function">
+<h4>Abstracting the plotting part into a function<a class="headerlink" href="#abstracting-the-plotting-part-into-a-function" title="Link to this heading"></a></h4>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-4-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-4-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button><button aria-controls="panel-4-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-4-Ug==" name="Ug==" role="tab" tabindex="-1">R</button></div><div aria-labelledby="tab-4-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-4-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+
+<span class="hll"><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">compute_mean</span><span class="p">):</span>
+</span>    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="c1"># time series</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">data_month</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+        <span class="n">data_month</span><span class="p">[</span><span class="n">column</span><span class="p">],</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">compute_mean</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">data_month</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">mean_value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="c1"># mean (as horizontal dashed line)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">mean_value</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;mean </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">mean_value</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">location</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date and time&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># format x-axis for better date display</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">column</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># read data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;weather_data.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># combine &#39;date&#39; and &#39;time&#39; into a single datetime column</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">])</span>
+
+<span class="c1"># set datetime as index for convenience</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;datetime&quot;</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;2024-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-02&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-03&quot;</span><span class="p">]:</span>
+    <span class="n">data_month</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">month</span><span class="p">]</span>
+
+<span class="hll">    <span class="n">plot</span><span class="p">(</span>
+</span><span class="hll">        <span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="s2">&quot;air temperature (C)&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="s2">&quot;Helsinki airport&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">compute_mean</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span class="hll">    <span class="p">)</span>
+</span><span class="hll">    <span class="n">plot</span><span class="p">(</span>
+</span><span class="hll">        <span class="s2">&quot;precipitation_mm&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="s2">&quot;precipitation (mm)&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="s2">&quot;Helsinki airport&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">compute_mean</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span><span class="hll">    <span class="p">)</span>
+</span></pre></div>
+</div>
+</div><div aria-labelledby="tab-4-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-4-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p>Work in progress. You can
+<a class="reference external" href="https://github.com/coderefinery/modular-type-along/issues/40">help us</a>
+by contributing or improving an R solution.</p>
+</div></div>
+<ul class="simple">
+<li><p>Discuss the advantages of what we have done here.</p></li>
+<li><p>Discuss what we expect before running it (we might expect this not to work
+because <code class="docutils literal notranslate"><span class="pre">data_month</span></code> seems undefined inside the function).</p></li>
+<li><p>Then try it out (it actually works).</p></li>
+<li><p>Discuss problems with this solution (what if we copy-paste the function to a
+different file?).</p></li>
+</ul>
+<p>The point of this step was that abstracting code into functions can be really
+good for re-usability but just the fact that we created a function does not
+mean that the function is reusable since in this case it depends on a variable
+defined outside the function and hence there are <strong>side-effects</strong>.</p>
+</section>
+<section id="small-improvements">
+<h4>Small improvements<a class="headerlink" href="#small-improvements" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Abstracting into more functions.</p></li>
+<li><p>Notice how some code comments got redundant:</p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-5-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-5-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button><button aria-controls="panel-5-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-5-Ug==" name="Ug==" role="tab" tabindex="-1">R</button></div><div aria-labelledby="tab-5-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-5-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+
+<span class="hll"><span class="k">def</span><span class="w"> </span><span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1"># combine &#39;date&#39; and &#39;time&#39; into a single datetime column</span>
+</span><span class="hll">    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">])</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="c1"># set datetime as index for convenience</span>
+</span><span class="hll">    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;datetime&quot;</span><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="k">return</span> <span class="n">data</span>
+</span>
+
+<span class="hll"><span class="k">def</span><span class="w"> </span><span class="nf">arithmetic_mean</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">mean_value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">mean_value</span>
+</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">compute_mean</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="c1"># time series</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">data_month</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+        <span class="n">data_month</span><span class="p">[</span><span class="n">column</span><span class="p">],</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">compute_mean</span><span class="p">:</span>
+<span class="hll">        <span class="n">mean_value</span> <span class="o">=</span> <span class="n">arithmetic_mean</span><span class="p">(</span><span class="n">data_month</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</span>
+        <span class="c1"># mean (as horizontal dashed line)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">mean_value</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;mean </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">mean_value</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">location</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date and time&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># format x-axis for better date display</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">column</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+
+
+<span class="hll"><span class="n">data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;weather_data.csv&quot;</span><span class="p">)</span>
+</span>
+<span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;2024-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-02&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-03&quot;</span><span class="p">]:</span>
+    <span class="n">data_month</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">month</span><span class="p">]</span>
+
+    <span class="n">plot</span><span class="p">(</span>
+        <span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;air temperature (C)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Helsinki airport&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+        <span class="n">compute_mean</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span>
+        <span class="s2">&quot;precipitation_mm&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;precipitation (mm)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Helsinki airport&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+        <span class="n">compute_mean</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-5-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-5-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p>Work in progress. You can
+<a class="reference external" href="https://github.com/coderefinery/modular-type-along/issues/40">help us</a>
+by contributing or improving an R solution.</p>
+</div></div>
+<p>Discuss what would happen if we copy-paste the functions to another project
+(these functions are stateful/time-dependent).</p>
+<p>Emphasize how stateful functions and order of execution in Jupyter notebooks
+can produce unexpected results and explain why we motivate to rerun all cells
+before sharing the notebook.</p>
+</section>
+<section id="move-from-notebook-to-script">
+<h4>Move from notebook to script<a class="headerlink" href="#move-from-notebook-to-script" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>“File” -&gt; “Save and Export Notebook As …” -&gt; “Executable Script”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> and commit the working version.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> and motivate how that can be useful to have later.</p></li>
+</ul>
+<p>As we continue from here, <strong>create commits after meaningful changes</strong> and later
+also share the repository with learners. This nicely connects to other lessons
+of the workshop.</p>
+</section>
+<section id="towards-functions-without-side-effects">
+<h4>Towards functions without side-effects<a class="headerlink" href="#towards-functions-without-side-effects" title="Link to this heading"></a></h4>
+<p>In Python we can detect problems by encapsulating all code into functions and
+when using a code editor with a static checker (instructor can demonstrate
+this by first introducing a main function, then detecting problems, then
+fixing the problems):</p>
+<figure class="align-default" id="id1">
+<img alt="_images/undefined.png" src="_images/undefined.png" />
+<figcaption>
+<p><span class="caption-text">After we have tucked the “main” code under a main function, an editor with
+linter/checker enabled highlights undefined names and variables which are
+assigned but never used.  The screenshot was obtained from a vim editor with
+<a class="reference external" href="https://docs.astral.sh/ruff/">ruff</a> language server enabled.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>We then improve towards:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-6-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-6-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button><button aria-controls="panel-6-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-6-Ug==" name="Ug==" role="tab" tabindex="-1">R</button></div><div aria-labelledby="tab-6-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-6-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+    <span class="c1"># combine &#39;date&#39; and &#39;time&#39; into a single datetime column</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">])</span>
+
+    <span class="c1"># set datetime as index for convenience</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;datetime&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">arithmetic_mean</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+    <span class="n">mean_value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mean_value</span>
+
+
+<span class="hll"><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">date_range</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">compute_mean</span><span class="p">,</span> <span class="n">file_name</span><span class="p">):</span>
+</span>    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="c1"># time series</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+<span class="hll">        <span class="n">date_range</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">values</span><span class="p">,</span>
+</span>        <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">compute_mean</span><span class="p">:</span>
+<span class="hll">        <span class="n">mean_value</span> <span class="o">=</span> <span class="n">arithmetic_mean</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</span>
+        <span class="c1"># mean (as horizontal dashed line)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">mean_value</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;mean </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">mean_value</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">location</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date and time&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># format x-axis for better date display</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+<span class="hll">    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+</span>
+
+<span class="hll"><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;weather_data.csv&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;2024-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-02&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-03&quot;</span><span class="p">]:</span>
+        <span class="n">data_month</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">month</span><span class="p">]</span>
+<span class="hll">        <span class="n">date_range</span> <span class="o">=</span> <span class="n">data_month</span><span class="o">.</span><span class="n">index</span>
+</span>
+        <span class="n">plot</span><span class="p">(</span>
+            <span class="n">date_range</span><span class="p">,</span>
+            <span class="n">data_month</span><span class="p">[</span><span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+            <span class="s2">&quot;air temperature (C)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Helsinki airport&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+            <span class="n">compute_mean</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">file_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-temperature.png&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">plot</span><span class="p">(</span>
+            <span class="n">date_range</span><span class="p">,</span>
+            <span class="n">data_month</span><span class="p">[</span><span class="s2">&quot;precipitation_mm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+            <span class="s2">&quot;precipitation (mm)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Helsinki airport&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+            <span class="n">compute_mean</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">file_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-precipitation.png&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+
+<span class="hll"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span class="hll">    <span class="n">main</span><span class="p">()</span>
+</span></pre></div>
+</div>
+</div><div aria-labelledby="tab-6-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-6-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p>Work in progress. You can
+<a class="reference external" href="https://github.com/coderefinery/modular-type-along/issues/40">help us</a>
+by contributing or improving an R solution.</p>
+</div></div>
+<p>These functions can now be copy-pasted to a different notebook or project and
+they will still work.</p>
+</section>
+<section id="unit-tests">
+<h4>Unit tests<a class="headerlink" href="#unit-tests" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Discuss what one could mean with “design code for testing”.</p></li>
+<li><p>Discuss when to test and when not to test.</p></li>
+<li><p>Discuss where to add a test and add a test to the <code class="docutils literal notranslate"><span class="pre">arithmetic_mean</span></code> function:</p></li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-7-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-7-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button><button aria-controls="panel-7-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-7-Ug==" name="Ug==" role="tab" tabindex="-1">R</button></div><div aria-labelledby="tab-7-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-7-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="hll"><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+    <span class="c1"># combine &#39;date&#39; and &#39;time&#39; into a single datetime column</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">])</span>
+
+    <span class="c1"># set datetime as index for convenience</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;datetime&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">arithmetic_mean</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+    <span class="n">mean_value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mean_value</span>
+
+
+<span class="hll"><span class="k">def</span><span class="w"> </span><span class="nf">test_arithmetic_mean</span><span class="p">():</span>
+</span><span class="hll">    <span class="n">result</span> <span class="o">=</span> <span class="n">arithmetic_mean</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">])</span>
+</span><span class="hll">    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span>
+</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">date_range</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">compute_mean</span><span class="p">,</span> <span class="n">file_name</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="c1"># time series</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">date_range</span><span class="p">,</span>
+        <span class="n">values</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">compute_mean</span><span class="p">:</span>
+        <span class="n">mean_value</span> <span class="o">=</span> <span class="n">arithmetic_mean</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="c1"># mean (as horizontal dashed line)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">mean_value</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;mean </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">mean_value</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">location</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date and time&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># format x-axis for better date display</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;weather_data.csv&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;2024-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-02&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-03&quot;</span><span class="p">]:</span>
+        <span class="n">data_month</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">month</span><span class="p">]</span>
+        <span class="n">date_range</span> <span class="o">=</span> <span class="n">data_month</span><span class="o">.</span><span class="n">index</span>
+
+        <span class="n">plot</span><span class="p">(</span>
+            <span class="n">date_range</span><span class="p">,</span>
+            <span class="n">data_month</span><span class="p">[</span><span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+            <span class="s2">&quot;air temperature (C)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Helsinki airport&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+            <span class="n">compute_mean</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">file_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-temperature.png&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">plot</span><span class="p">(</span>
+            <span class="n">date_range</span><span class="p">,</span>
+            <span class="n">data_month</span><span class="p">[</span><span class="s2">&quot;precipitation_mm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+            <span class="s2">&quot;precipitation (mm)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Helsinki airport&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+            <span class="n">compute_mean</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">file_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-precipitation.png&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-7-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-7-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p>Work in progress. You can
+<a class="reference external" href="https://github.com/coderefinery/modular-type-along/issues/40">help us</a>
+by contributing or improving an R solution.</p>
+</div></div>
+</section>
+<section id="command-line-interface-cli">
+<h4>Command-line interface (CLI)<a class="headerlink" href="#command-line-interface-cli" title="Link to this heading"></a></h4>
+<ul>
+<li><p>Add a CLI for the input data file, the month, and the output folder.</p></li>
+<li><p>Instructor demonstrates it, for instance:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>example.py<span class="w"> </span>--month<span class="w"> </span><span class="m">2024</span>-05<span class="w"> </span>--data-file<span class="w"> </span>weather_data.csv<span class="w"> </span>--output-directory<span class="w"> </span>/home/user/example/results
+</pre></div>
+</div>
+</li>
+<li><p>Example here is using <a class="reference external" href="https://click.palletsprojects.com/">click</a> but it can
+equally well be <a class="reference external" href="https://docs.python.org/3/library/optparse.html">optparse</a>,
+<a class="reference external" href="https://docs.python.org/3/library/argparse.html">argparse</a>,
+<a class="reference external" href="http://docopt.org/">docopt</a>, or <a class="reference external" href="https://typer.tiangolo.com/">Typer</a>.</p></li>
+<li><p>Discuss the motivations for adding a CLI:</p>
+<ul class="simple">
+<li><p>We are able to modify the behavior without changing (or needing to
+understand) the code</p></li>
+<li><p>We can run many of such scripts as part of a workflow</p></li>
+</ul>
+</li>
+</ul>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-8-UHl0aG9u" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-8-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="0">Python</button><button aria-controls="panel-8-Ug==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-8-Ug==" name="Ug==" role="tab" tabindex="-1">R</button></div><div aria-labelledby="tab-8-UHl0aG9u" class="sphinx-tabs-panel group-tab" id="panel-8-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<span class="hll"><span class="kn">import</span><span class="w"> </span><span class="nn">click</span>
+</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+    <span class="c1"># combine &#39;date&#39; and &#39;time&#39; into a single datetime column</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">])</span>
+
+    <span class="c1"># set datetime as index for convenience</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;datetime&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">arithmetic_mean</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+    <span class="n">mean_value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mean_value</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_arithmetic_mean</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">arithmetic_mean</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">])</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">date_range</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">compute_mean</span><span class="p">,</span> <span class="n">file_name</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="c1"># time series</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">date_range</span><span class="p">,</span>
+        <span class="n">values</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">compute_mean</span><span class="p">:</span>
+        <span class="n">mean_value</span> <span class="o">=</span> <span class="n">arithmetic_mean</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="c1"># mean (as horizontal dashed line)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">mean_value</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;mean </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">mean_value</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">location</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;date and time&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># format x-axis for better date display</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+
+<span class="hll"><span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+</span><span class="hll"><span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--month&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Which month (YYYY-MM)?&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span>
+</span><span class="hll">    <span class="s2">&quot;--data-file&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span class="hll">    <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">path_type</span><span class="o">=</span><span class="n">Path</span><span class="p">),</span>
+</span><span class="hll">    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Data is read from this file.&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="p">)</span>
+</span><span class="hll"><span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span>
+</span><span class="hll">    <span class="s2">&quot;--output-directory&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span class="hll">    <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">path_type</span><span class="o">=</span><span class="n">Path</span><span class="p">),</span>
+</span><span class="hll">    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Figures are written to this directory.&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="p">)</span>
+</span><span class="hll"><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span>
+</span><span class="hll">    <span class="n">month</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">data_file</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">output_directory</span><span class="p">,</span>
+</span><span class="hll"><span class="p">):</span>
+</span>    <span class="n">data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="n">data_file</span><span class="p">)</span>
+
+    <span class="n">data_month</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">month</span><span class="p">]</span>
+    <span class="n">date_range</span> <span class="o">=</span> <span class="n">data_month</span><span class="o">.</span><span class="n">index</span>
+
+    <span class="n">plot</span><span class="p">(</span>
+        <span class="n">date_range</span><span class="p">,</span>
+        <span class="n">data_month</span><span class="p">[</span><span class="s2">&quot;air_temperature_celsius&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="s2">&quot;air temperature (C)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Helsinki airport&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+        <span class="n">compute_mean</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">file_name</span><span class="o">=</span><span class="n">output_directory</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-temperature.png&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span>
+        <span class="n">date_range</span><span class="p">,</span>
+        <span class="n">data_month</span><span class="p">[</span><span class="s2">&quot;precipitation_mm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="s2">&quot;precipitation (mm)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Helsinki airport&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+        <span class="n">compute_mean</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">file_name</span><span class="o">=</span><span class="n">output_directory</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-precipitation.png&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-8-Ug==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-8-Ug==" name="Ug==" role="tabpanel" tabindex="0"><p>Work in progress. You can
+<a class="reference external" href="https://github.com/coderefinery/modular-type-along/issues/40">help us</a>
+by contributing or improving an R solution.</p>
+</div></div>
+</section>
+<section id="split-long-script-into-modules">
+<h4>Split long script into modules<a class="headerlink" href="#split-long-script-into-modules" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Discuss how you would move some functions out and organize them into separate
+modules which can be imported to other projects.</p></li>
+<li><p>Discuss naming.</p></li>
+<li><p>Discuss interface design.</p></li>
+</ul>
+</section>
+<section id="summarize-in-the-collaborative-document">
+<h4>Summarize in the collaborative document<a class="headerlink" href="#summarize-in-the-collaborative-document" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Now return to initial questions on the collaborative document and discuss
+questions and comments. If there is time left, there are additional
+questions and exercises.</p></li>
+<li><p>It is easier and more fun to teach this as a pair with somebody else where
+one person can type and the other person helps watching the questions and
+commends and relays them to the co-instructor.</p></li>
+</ul>
+</section>
+</section>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
